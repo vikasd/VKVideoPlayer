@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		12907384268C4DA98E365BB7 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 14F1449F68D8472AB23A44B7 /* libPods.a */; };
 		1B1848CC18F3D7B70020F2EE /* VKVideoPlayerCaption.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B1848CB18F3D7B70020F2EE /* VKVideoPlayerCaption.m */; };
 		1B1848CF18F3D8CB0020F2EE /* VKVideoPlayerExternalMonitor.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B1848CE18F3D8CB0020F2EE /* VKVideoPlayerExternalMonitor.m */; };
 		1B1848D518F3DFA30020F2EE /* VKVideoPlayerAirPlay.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B1848D418F3DFA30020F2EE /* VKVideoPlayerAirPlay.m */; };
@@ -69,6 +68,7 @@
 		1BF1CCDB1903A8660006FBC8 /* DemoRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BF1CCDA1903A8660006FBC8 /* DemoRootViewController.m */; };
 		D1C3D9DF54424BFB8D408C64 /* libPods-VKVideoPlayerTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 150BEB98AFEA4FF199BA4AA6 /* libPods-VKVideoPlayerTests.a */; };
 		F3E900D01B2823910057C484 /* SampleVideo_640x360_1mb.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = F3E900CF1B2823890057C484 /* SampleVideo_640x360_1mb.mp4 */; };
+		F4E9623CC467AA994B66F07B /* libPods-VKVideoPlayer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 93266DE42B957B2C88D8EE80 /* libPods-VKVideoPlayer.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -156,10 +156,11 @@
 		1BB9D35818FBFEF300568286 /* testCaptionTop.srt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; lineEnding = 2; path = testCaptionTop.srt; sourceTree = "<group>"; };
 		1BF1CCD91903A8660006FBC8 /* DemoRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoRootViewController.h; sourceTree = "<group>"; };
 		1BF1CCDA1903A8660006FBC8 /* DemoRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoRootViewController.m; sourceTree = "<group>"; };
-		95C1FFB45565AC5E0DF042CF /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		93266DE42B957B2C88D8EE80 /* libPods-VKVideoPlayer.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-VKVideoPlayer.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0E6BE2DABFD07EF5799E756 /* Pods-VKVideoPlayerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VKVideoPlayerTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VKVideoPlayerTests/Pods-VKVideoPlayerTests.debug.xcconfig"; sourceTree = "<group>"; };
+		A1EB5454A53176BC7A9CCA3F /* Pods-VKVideoPlayer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VKVideoPlayer.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VKVideoPlayer/Pods-VKVideoPlayer.debug.xcconfig"; sourceTree = "<group>"; };
 		D1D13B7470C2E5F01C8FCC17 /* Pods-VKVideoPlayerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VKVideoPlayerTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-VKVideoPlayerTests/Pods-VKVideoPlayerTests.release.xcconfig"; sourceTree = "<group>"; };
-		D8BE0CD25C3C24CCFFAA824A /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		F0E60B41FFC83F0FD92D26ED /* Pods-VKVideoPlayer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VKVideoPlayer.release.xcconfig"; path = "Pods/Target Support Files/Pods-VKVideoPlayer/Pods-VKVideoPlayer.release.xcconfig"; sourceTree = "<group>"; };
 		F3E900CF1B2823890057C484 /* SampleVideo_640x360_1mb.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = SampleVideo_640x360_1mb.mp4; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -171,7 +172,7 @@
 				1BB6ADBD18EE626A00767FA3 /* CoreGraphics.framework in Frameworks */,
 				1BB6ADBF18EE626A00767FA3 /* UIKit.framework in Frameworks */,
 				1BB6ADBB18EE626A00767FA3 /* Foundation.framework in Frameworks */,
-				12907384268C4DA98E365BB7 /* libPods.a in Frameworks */,
+				F4E9623CC467AA994B66F07B /* libPods-VKVideoPlayer.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -261,6 +262,7 @@
 				1BB6ADD318EE626A00767FA3 /* XCTest.framework */,
 				14F1449F68D8472AB23A44B7 /* libPods.a */,
 				150BEB98AFEA4FF199BA4AA6 /* libPods-VKVideoPlayerTests.a */,
+				93266DE42B957B2C88D8EE80 /* libPods-VKVideoPlayer.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -406,10 +408,10 @@
 		D3E90C058B2B136A5BB65DE3 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				D8BE0CD25C3C24CCFFAA824A /* Pods.debug.xcconfig */,
-				95C1FFB45565AC5E0DF042CF /* Pods.release.xcconfig */,
 				A0E6BE2DABFD07EF5799E756 /* Pods-VKVideoPlayerTests.debug.xcconfig */,
 				D1D13B7470C2E5F01C8FCC17 /* Pods-VKVideoPlayerTests.release.xcconfig */,
+				A1EB5454A53176BC7A9CCA3F /* Pods-VKVideoPlayer.debug.xcconfig */,
+				F0E60B41FFC83F0FD92D26ED /* Pods-VKVideoPlayer.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -421,11 +423,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1BB6ADE318EE626A00767FA3 /* Build configuration list for PBXNativeTarget "VKVideoPlayer" */;
 			buildPhases = (
-				C40B611D35304B928326E2C8 /* Check Pods Manifest.lock */,
+				1E2F735AB62B25EC6E623E93 /* [CP] Check Pods Manifest.lock */,
 				1BB6ADB318EE626A00767FA3 /* Sources */,
 				1BB6ADB418EE626A00767FA3 /* Frameworks */,
 				1BB6ADB518EE626A00767FA3 /* Resources */,
-				D97F52C7FDBD4A659DE0FAEA /* Copy Pods Resources */,
+				73B5C1AAC97D74FFF32379F6 /* [CP] Embed Pods Frameworks */,
+				B4CE07729D52C816354B3D48 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -440,11 +443,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1BB6ADE618EE626A00767FA3 /* Build configuration list for PBXNativeTarget "VKVideoPlayerTests" */;
 			buildPhases = (
-				336AC2A4F86C445AA1127722 /* Check Pods Manifest.lock */,
+				336AC2A4F86C445AA1127722 /* [CP] Check Pods Manifest.lock */,
 				1BB6ADCE18EE626A00767FA3 /* Sources */,
 				1BB6ADCF18EE626A00767FA3 /* Frameworks */,
 				1BB6ADD018EE626A00767FA3 /* Resources */,
-				25739C77B1BB40EC93E86E3C /* Copy Pods Resources */,
+				25739C77B1BB40EC93E86E3C /* [CP] Copy Pods Resources */,
+				E0F4FC5C82776A005DCF4F42 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -544,14 +548,29 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		25739C77B1BB40EC93E86E3C /* Copy Pods Resources */ = {
+		1E2F735AB62B25EC6E623E93 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		25739C77B1BB40EC93E86E3C /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -559,14 +578,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VKVideoPlayerTests/Pods-VKVideoPlayerTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		336AC2A4F86C445AA1127722 /* Check Pods Manifest.lock */ = {
+		336AC2A4F86C445AA1127722 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -574,34 +593,49 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		C40B611D35304B928326E2C8 /* Check Pods Manifest.lock */ = {
+		73B5C1AAC97D74FFF32379F6 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VKVideoPlayer/Pods-VKVideoPlayer-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		D97F52C7FDBD4A659DE0FAEA /* Copy Pods Resources */ = {
+		B4CE07729D52C816354B3D48 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VKVideoPlayer/Pods-VKVideoPlayer-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E0F4FC5C82776A005DCF4F42 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VKVideoPlayerTests/Pods-VKVideoPlayerTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -701,7 +735,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -736,7 +770,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -746,7 +780,7 @@
 		};
 		1BB6ADE418EE626A00767FA3 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D8BE0CD25C3C24CCFFAA824A /* Pods.debug.xcconfig */;
+			baseConfigurationReference = A1EB5454A53176BC7A9CCA3F /* Pods-VKVideoPlayer.debug.xcconfig */;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -763,7 +797,7 @@
 		};
 		1BB6ADE518EE626A00767FA3 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 95C1FFB45565AC5E0DF042CF /* Pods.release.xcconfig */;
+			baseConfigurationReference = F0E60B41FFC83F0FD92D26ED /* Pods-VKVideoPlayer.release.xcconfig */;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;

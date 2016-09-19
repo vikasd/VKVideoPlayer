@@ -74,7 +74,7 @@ typedef enum {
   Class vcClass = NSClassFromString(cell.textLabel.text);
   UIViewController *viewController = [[vcClass alloc] init];
   
-  [self presentModalViewController:viewController animated:YES];
+    [self presentViewController:viewController animated:YES completion:nil];
   
   if ([viewController isKindOfClass:[VKVideoPlayerViewController class]]) {
     VKVideoPlayerViewController *videoController = (VKVideoPlayerViewController*)viewController;
