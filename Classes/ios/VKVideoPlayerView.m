@@ -76,12 +76,16 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
     
     UIColor *controlColor = [VKVideoPlayerView colorFromHexString:VIDEO_CONTROL_COLOR];
     [self.playButton setTitleColor:controlColor forState:UIControlStateNormal];
+    [self.playButton setTitleColor:controlColor forState:UIControlStateHighlighted];
     [self.playButton setTitleColor:controlColor forState:UIControlStateSelected];
     [self.fullscreenButton setTitleColor:controlColor forState:UIControlStateNormal];
+    [self.fullscreenButton setTitleColor:controlColor forState:UIControlStateHighlighted];
     [self.fullscreenButton setTitleColor:controlColor forState:UIControlStateSelected];
     [self.bigPlayButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [self.bigPlayButton setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
     [self.bigPlayButton setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];
     [self.addNoteButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [self.addNoteButton setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
     [self.addNoteButton setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];
     
     self.scrubber.minimumTrackTintColor = controlColor;

@@ -1191,16 +1191,16 @@ typedef enum {
 
 - (void)performOrientationChange:(UIInterfaceOrientation)deviceOrientation {
     
-    if (!self.forceRotate) {
-        return;
-    }
-    if ([self.delegate respondsToSelector:@selector(videoPlayer:willChangeOrientationTo:)]) {
-        [self.delegate videoPlayer:self willChangeOrientationTo:deviceOrientation];
-    }
+//    if (!self.forceRotate) {
+//        return;
+//    }
+//    if ([self.delegate respondsToSelector:@selector(videoPlayer:willChangeOrientationTo:)]) {
+//        [self.delegate videoPlayer:self willChangeOrientationTo:deviceOrientation];
+//    }
     
 //    CGFloat degrees = [self degreesForOrientation:deviceOrientation];
 //    __weak __typeof__(self) weakSelf = self;
-    UIInterfaceOrientation lastOrientation = self.visibleInterfaceOrientation;
+//    UIInterfaceOrientation lastOrientation = self.visibleInterfaceOrientation;
 //    self.visibleInterfaceOrientation = deviceOrientation;
 //    [UIView animateWithDuration:0.3f animations:^{
 //        CGRect bounds = [[UIScreen mainScreen] bounds];
@@ -1237,12 +1237,12 @@ typedef enum {
 //        }
 //    }];
     
-    if ([self.delegate respondsToSelector:@selector(videoPlayer:didChangeOrientationFrom:)]) {
-        [self.delegate videoPlayer:self didChangeOrientationFrom:lastOrientation];
-    }
+//    if ([self.delegate respondsToSelector:@selector(videoPlayer:didChangeOrientationFrom:)]) {
+//        [self.delegate videoPlayer:self didChangeOrientationFrom:lastOrientation];
+//    }
     
 //    [[UIApplication sharedApplication] setStatusBarOrientation:self.visibleInterfaceOrientation animated:YES];
-    self.view.fullscreenButton.selected = self.isFullScreen = UIInterfaceOrientationIsLandscape(deviceOrientation);
+//    self.view.fullscreenButton.selected = self.isFullScreen = UIInterfaceOrientationIsLandscape(deviceOrientation);
 }
 
 - (CGFloat)degreesForOrientation:(UIInterfaceOrientation)deviceOrientation {
