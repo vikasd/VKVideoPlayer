@@ -35,9 +35,9 @@ s.authors            = {
 "Keisuke Matsuo" => "matzo@viki.com"
 }
 
-s.platform     = :ios, "5.0"
-s.ios.deployment_target = '5.0'
-s.source       = { :git => "https://github.com/vikasd/VKVideoPlayer.git", :tag => "1.0.0" }
+s.platform     = :ios, "7.0"
+s.ios.deployment_target = '7.0'
+s.source       = { :git => "https://github.com/vikasd/VKVideoPlayer.git", :tag => "1.0.1" }
 
 s.source_files = 'Classes/ios/*.{h,m}'
 
