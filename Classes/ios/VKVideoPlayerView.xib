@@ -9,6 +9,7 @@
             <string>Robo</string>
             <string>Robo</string>
             <string>Robo</string>
+            <string>Robo</string>
         </mutableArray>
     </customFonts>
     <objects>
@@ -79,7 +80,7 @@
                                         <color key="titleColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     </state>
                                     <state key="highlighted">
-                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="titleColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     </state>
                                     <connections>
                                         <action selector="playButtonTapped:" destination="-1" eventType="touchUpInside" id="30"/>
@@ -116,7 +117,7 @@
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="32z-fk-Zew">
                                     <rect key="frame" x="99" y="0.0" width="401" height="60"/>
                                     <subviews>
-                                        <slider opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="18" customClass="VKScrubber">
+                                        <slider clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="18" customClass="VKScrubber">
                                             <rect key="frame" x="-2" y="15" width="405" height="31"/>
                                         </slider>
                                     </subviews>
@@ -146,27 +147,29 @@
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dt4-Ds-xZD">
-                            <rect key="frame" x="240" y="275" width="120" height="50"/>
+                            <rect key="frame" x="210" y="260" width="180" height="80"/>
                             <subviews>
-                                <button opaque="NO" alpha="0.79999999999999982" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="169-ch-vv0">
-                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="169-ch-vv0">
+                                    <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
                                     <constraints>
-                                        <constraint firstAttribute="width" constant="50" id="qhp-uw-ydA"/>
-                                        <constraint firstAttribute="height" constant="50" id="uXq-3b-ASG"/>
+                                        <constraint firstAttribute="width" constant="80" id="qhp-uw-ydA"/>
+                                        <constraint firstAttribute="height" constant="80" id="uXq-3b-ASG"/>
                                     </constraints>
+                                    <fontDescription key="fontDescription" name="Robo" family="Robo" pointSize="80"/>
+                                    <state key="normal" title="Q"/>
                                     <connections>
                                         <action selector="playButtonTapped:" destination="-1" eventType="touchUpInside" id="wHK-Ly-fNf"/>
                                     </connections>
                                 </button>
-                                <button hidden="YES" opaque="NO" alpha="0.80000001192092896" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ed4-pv-im9">
-                                    <rect key="frame" x="70" y="0.0" width="50" height="50"/>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ed4-pv-im9">
+                                    <rect key="frame" x="100" y="0.0" width="80" height="80"/>
                                     <constraints>
-                                        <constraint firstAttribute="height" constant="50" id="QP0-Fz-45f"/>
-                                        <constraint firstAttribute="width" constant="50" id="YM5-9E-bL6"/>
+                                        <constraint firstAttribute="height" constant="80" id="QP0-Fz-45f"/>
+                                        <constraint firstAttribute="width" constant="80" id="YM5-9E-bL6"/>
                                     </constraints>
-                                    <fontDescription key="fontDescription" name="Robo" family="Robo" pointSize="50"/>
+                                    <fontDescription key="fontDescription" name="Robo" family="Robo" pointSize="80"/>
                                     <state key="normal" title="X">
-                                        <color key="titleColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
                                     <connections>
@@ -177,11 +180,11 @@
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstItem="ed4-pv-im9" firstAttribute="centerY" secondItem="dt4-Ds-xZD" secondAttribute="centerY" id="0r4-Md-eCG"/>
-                                <constraint firstAttribute="width" constant="120" id="KPU-xv-kah"/>
+                                <constraint firstAttribute="width" constant="180" id="KPU-xv-kah"/>
                                 <constraint firstItem="169-ch-vv0" firstAttribute="centerY" secondItem="dt4-Ds-xZD" secondAttribute="centerY" id="Nx5-gh-1yt"/>
                                 <constraint firstAttribute="trailing" secondItem="ed4-pv-im9" secondAttribute="trailing" id="iEQ-Vh-CEG"/>
                                 <constraint firstItem="169-ch-vv0" firstAttribute="leading" secondItem="dt4-Ds-xZD" secondAttribute="leading" id="ndu-YO-EmW"/>
-                                <constraint firstAttribute="height" constant="50" id="yLl-g5-apC"/>
+                                <constraint firstAttribute="height" constant="80" id="yLl-g5-apC"/>
                             </constraints>
                         </view>
                     </subviews>

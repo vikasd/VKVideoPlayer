@@ -1200,7 +1200,7 @@ typedef enum {
     
 //    CGFloat degrees = [self degreesForOrientation:deviceOrientation];
 //    __weak __typeof__(self) weakSelf = self;
-//    UIInterfaceOrientation lastOrientation = self.visibleInterfaceOrientation;
+    UIInterfaceOrientation lastOrientation = self.visibleInterfaceOrientation;
 //    self.visibleInterfaceOrientation = deviceOrientation;
 //    [UIView animateWithDuration:0.3f animations:^{
 //        CGRect bounds = [[UIScreen mainScreen] bounds];
@@ -1237,7 +1237,11 @@ typedef enum {
 //        }
 //    }];
     
-    [[UIApplication sharedApplication] setStatusBarOrientation:self.visibleInterfaceOrientation animated:YES];
+    if ([self.delegate respondsToSelector:@selector(videoPlayer:didChangeOrientationFrom:)]) {
+        [self.delegate videoPlayer:self didChangeOrientationFrom:lastOrientation];
+    }
+    
+//    [[UIApplication sharedApplication] setStatusBarOrientation:self.visibleInterfaceOrientation animated:YES];
     self.view.fullscreenButton.selected = self.isFullScreen = UIInterfaceOrientationIsLandscape(deviceOrientation);
 }
 

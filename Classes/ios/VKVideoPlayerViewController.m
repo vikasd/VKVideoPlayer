@@ -110,16 +110,20 @@
 }
 
 #pragma mark - Orientation
-- (BOOL)shouldAutorotate {
-  return NO;
-}
+//- (BOOL)shouldAutorotate {
+//  return YES;
+//}
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-  if (self.player.isFullScreen) {
-    return UIInterfaceOrientationIsLandscape(interfaceOrientation);
-  } else {
-    return NO;
-  }
+//- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
+//  if (self.player.isFullScreen) {
+//    return UIInterfaceOrientationIsLandscape(interfaceOrientation);
+//  } else {
+//    return NO;
+//  }
+//}
+
+- (UIInterfaceOrientationMask)supportedInterfaceOrientations {
+    return UIInterfaceOrientationMaskLandscape;
 }
 
 @end
