@@ -37,7 +37,7 @@ s.authors            = {
 
 s.platform     = :ios, "7.0"
 s.ios.deployment_target = '7.0'
-s.source       = { :git => "https://github.com/vikasd/VKVideoPlayer.git", :tag => "1.0.1" }
+s.source       = { :git => "https://github.com/vikasd/VKVideoPlayer.git", :tag => "robo_1.0" }
 
 s.source_files = 'Classes/ios/*.{h,m}'
 
@@ -45,7 +45,7 @@ s.ios.exclude_files = 'Classes/osx'
 s.osx.exclude_files = 'Classes/ios'
 s.public_header_files = 'Classes/**/*.h'
 
-s.resources = 'Assets/*.png' , 'Classes/ios/*.{xib}'
+s.resources = 'Assets/*.png' , 'Classes/ios/*.{xib}', '.ttf'
 
 s.frameworks = 'QuartzCore', 'MediaPlayer', 'AVFoundation'
 
