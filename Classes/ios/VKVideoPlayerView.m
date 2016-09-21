@@ -79,10 +79,10 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
     [self.playButton setTitleColor:controlColor forState:UIControlStateSelected];
     [self.fullscreenButton setTitleColor:controlColor forState:UIControlStateNormal];
     [self.fullscreenButton setTitleColor:controlColor forState:UIControlStateSelected];
-    [self.bigPlayButton setTitleColor:controlColor forState:UIControlStateNormal];
-    [self.bigPlayButton setTitleColor:controlColor forState:UIControlStateSelected];
-    [self.addNoteButton setTitleColor:controlColor forState:UIControlStateNormal];
-    [self.addNoteButton setTitleColor:controlColor forState:UIControlStateSelected];
+    [self.bigPlayButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [self.bigPlayButton setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];
+    [self.addNoteButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [self.addNoteButton setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];
     
     self.scrubber.minimumTrackTintColor = controlColor;
     self.scrubber.maximumTrackTintColor = [UIColor lightGrayColor];

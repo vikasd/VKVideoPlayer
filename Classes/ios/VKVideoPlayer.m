@@ -1190,6 +1190,7 @@ typedef enum {
 }
 
 - (void)performOrientationChange:(UIInterfaceOrientation)deviceOrientation {
+    
     if (!self.forceRotate) {
         return;
     }
@@ -1197,44 +1198,44 @@ typedef enum {
         [self.delegate videoPlayer:self willChangeOrientationTo:deviceOrientation];
     }
     
-    CGFloat degrees = [self degreesForOrientation:deviceOrientation];
-    __weak __typeof__(self) weakSelf = self;
-    UIInterfaceOrientation lastOrientation = self.visibleInterfaceOrientation;
-    self.visibleInterfaceOrientation = deviceOrientation;
-    [UIView animateWithDuration:0.3f animations:^{
-        CGRect bounds = [[UIScreen mainScreen] bounds];
-        CGRect parentBounds;
-        CGRect viewBoutnds;
-        if (UIInterfaceOrientationIsLandscape(deviceOrientation)) {
-            viewBoutnds = CGRectMake(0, 0, CGRectGetWidth(self.landscapeFrame), CGRectGetHeight(self.landscapeFrame));
-            parentBounds = CGRectMake(0, 0, CGRectGetHeight(bounds), CGRectGetWidth(bounds));
-        } else {
-            viewBoutnds = CGRectMake(0, 0, CGRectGetWidth(self.portraitFrame), CGRectGetHeight(self.portraitFrame));
-            parentBounds = CGRectMake(0, 0, CGRectGetWidth(bounds), CGRectGetHeight(bounds));
-        }
-        
-        weakSelf.view.superview.transform = CGAffineTransformMakeRotation(degreesToRadians(degrees));
-        weakSelf.view.superview.bounds = parentBounds;
-        [weakSelf.view.superview setFrameOriginX:0.0f];
-        [weakSelf.view.superview setFrameOriginY:0.0f];
-        
-        CGRect wvFrame = weakSelf.view.superview.superview.frame;
-        if (wvFrame.origin.y > 0) {
-            wvFrame.size.height = CGRectGetHeight(bounds) ;
-            wvFrame.origin.y = 0;
-            weakSelf.view.superview.superview.frame = wvFrame;
-        }
-        
-        weakSelf.view.bounds = viewBoutnds;
-        [weakSelf.view setFrameOriginX:0.0f];
-        [weakSelf.view setFrameOriginY:0.0f];
-        [weakSelf.view layoutForOrientation:deviceOrientation];
-        
-    } completion:^(BOOL finished) {
-        if ([self.delegate respondsToSelector:@selector(videoPlayer:didChangeOrientationFrom:)]) {
-            [self.delegate videoPlayer:self didChangeOrientationFrom:lastOrientation];
-        }
-    }];
+//    CGFloat degrees = [self degreesForOrientation:deviceOrientation];
+//    __weak __typeof__(self) weakSelf = self;
+//    UIInterfaceOrientation lastOrientation = self.visibleInterfaceOrientation;
+//    self.visibleInterfaceOrientation = deviceOrientation;
+//    [UIView animateWithDuration:0.3f animations:^{
+//        CGRect bounds = [[UIScreen mainScreen] bounds];
+//        CGRect parentBounds;
+//        CGRect viewBoutnds;
+//        if (UIInterfaceOrientationIsLandscape(deviceOrientation)) {
+//            viewBoutnds = CGRectMake(0, 0, CGRectGetWidth(self.landscapeFrame), CGRectGetHeight(self.landscapeFrame));
+//            parentBounds = CGRectMake(0, 0, CGRectGetHeight(bounds), CGRectGetWidth(bounds));
+//        } else {
+//            viewBoutnds = CGRectMake(0, 0, CGRectGetWidth(self.portraitFrame), CGRectGetHeight(self.portraitFrame));
+//            parentBounds = CGRectMake(0, 0, CGRectGetWidth(bounds), CGRectGetHeight(bounds));
+//        }
+//        
+//        weakSelf.view.superview.transform = CGAffineTransformMakeRotation(degreesToRadians(degrees));
+//        weakSelf.view.superview.bounds = parentBounds;
+//        [weakSelf.view.superview setFrameOriginX:0.0f];
+//        [weakSelf.view.superview setFrameOriginY:0.0f];
+//        
+//        CGRect wvFrame = weakSelf.view.superview.superview.frame;
+//        if (wvFrame.origin.y > 0) {
+//            wvFrame.size.height = CGRectGetHeight(bounds) ;
+//            wvFrame.origin.y = 0;
+//            weakSelf.view.superview.superview.frame = wvFrame;
+//        }
+//        
+//        weakSelf.view.bounds = viewBoutnds;
+//        [weakSelf.view setFrameOriginX:0.0f];
+//        [weakSelf.view setFrameOriginY:0.0f];
+//        [weakSelf.view layoutForOrientation:deviceOrientation];
+//        
+//    } completion:^(BOOL finished) {
+//        if ([self.delegate respondsToSelector:@selector(videoPlayer:didChangeOrientationFrom:)]) {
+//            [self.delegate videoPlayer:self didChangeOrientationFrom:lastOrientation];
+//        }
+//    }];
     
     [[UIApplication sharedApplication] setStatusBarOrientation:self.visibleInterfaceOrientation animated:YES];
     self.view.fullscreenButton.selected = self.isFullScreen = UIInterfaceOrientationIsLandscape(deviceOrientation);

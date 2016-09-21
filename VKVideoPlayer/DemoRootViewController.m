@@ -40,6 +40,10 @@ typedef enum {
   return DemoVideoPlayerIndexLength;
 }
 
+- (UIInterfaceOrientationMask)supportedInterfaceOrientations {
+    return UIInterfaceOrientationMaskLandscape;
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
   NSString *cellIdentifier = @"DemoRootTableCell";
   UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
@@ -73,8 +77,10 @@ typedef enum {
   UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
   Class vcClass = NSClassFromString(cell.textLabel.text);
   UIViewController *viewController = [[vcClass alloc] init];
-  
-    [self presentViewController:viewController animated:YES completion:nil];
+    VKVideoPlayerViewController *vc = (VKVideoPlayerViewController *)viewController;
+    vc.player.forceRotate = NO;
+    
+    [self presentViewController:vc animated:YES completion:nil];
   
   if ([viewController isKindOfClass:[VKVideoPlayerViewController class]]) {
     VKVideoPlayerViewController *videoController = (VKVideoPlayerViewController*)viewController;
