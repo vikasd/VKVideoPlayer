@@ -22,6 +22,7 @@
 - (void)fullScreenButtonTapped;
 - (void)playButtonPressed;
 - (void)pauseButtonPressed;
+- (void)noteButtonTapped;
 
 - (void)nextTrackButtonPressed;
 - (void)previousTrackButtonPressed;
@@ -47,35 +48,21 @@
 @property (nonatomic, strong) IBOutlet VKVideoPlayerLayerView* playerLayerView;
 @property (nonatomic, strong) IBOutlet UIView* controls;
 @property (nonatomic, strong) IBOutlet UIView* bottomControlOverlay;
-@property (nonatomic, strong) IBOutlet UIView* topControlOverlay;
+@property (weak, nonatomic) IBOutlet UIView *buttonOverlayView;
 @property (nonatomic, strong) IBOutlet UIActivityIndicatorView* activityIndicator;
 
-@property (nonatomic, strong) IBOutlet UILabel* titleLabel;
-@property (nonatomic, strong) IBOutlet VKPickerButton* captionButton;
-@property (nonatomic, strong) IBOutlet VKPickerButton* videoQualityButton;
-@property (nonatomic, strong) IBOutlet UIButton* topSettingsButton;
-
 @property (nonatomic, strong) IBOutlet UIButton* playButton;
-@property (nonatomic, strong) IBOutlet UIButton* nextButton;
 @property (nonatomic, strong) IBOutlet UILabel* currentTimeLabel;
 @property (nonatomic, strong) IBOutlet VKScrubber* scrubber;
+@property (weak, nonatomic) IBOutlet UIView *scrubberHolderView;
 @property (nonatomic, strong) IBOutlet UILabel* totalTimeLabel;
-@property (nonatomic, strong) IBOutlet UIButton* rewindButton;
 @property (nonatomic, strong) IBOutlet UIButton* fullscreenButton;
 
-@property (nonatomic, strong) IBOutlet UIButton* previousButton;
-@property (nonatomic, strong) IBOutlet UIButton* doneButton;
-
-@property (nonatomic, strong) IBOutlet UILabel* messageLabel;
-
-@property (nonatomic, strong) IBOutlet UIView* buttonPlaceHolderView;
-
+@property (weak, nonatomic) IBOutlet UIView *buttonHolderView;
 @property (nonatomic, strong) IBOutlet UIButton* bigPlayButton;
+@property (weak, nonatomic) IBOutlet UIButton *addNoteButton;
 
-@property (nonatomic, strong) IBOutlet DTAttributedLabel* captionTopView;
-@property (nonatomic, strong) IBOutlet DTAttributedLabel* captionBottomView;
-@property (nonatomic, strong) IBOutlet UIView* captionTopContainerView;
-
+@property (weak, nonatomic) IBOutlet UILabel *watermarkLabel;
 @property (nonatomic, readonly) BOOL isControlsEnabled;
 @property (nonatomic, readonly) BOOL isControlsHidden;
 
@@ -83,25 +70,11 @@
 
 @property (nonatomic, assign) NSInteger controlHideCountdown;
 
-@property (nonatomic, strong) IBOutlet UIView* externalDeviceView;
-@property (nonatomic, strong) IBOutlet UIImageView* externalDeviceImageView;
-@property (nonatomic, strong) IBOutlet UILabel* externalDeviceLabel;
-
-@property (nonatomic, strong) IBOutlet UIView* topPortraitControlOverlay;
-@property (nonatomic, strong) IBOutlet UIButton* topPortraitCloseButton;
-
-@property (nonatomic, strong) IBOutlet UIImageView* playerShadow;
-
 @property (nonatomic, strong) NSNumber* playerControlsAutoHideTime;
 
 - (IBAction)fullscreenButtonTapped:(id)sender;
 - (IBAction)playButtonTapped:(id)sender;
-- (IBAction)nextTrackButtonPressed:(id)sender;
-- (IBAction)previousTrackButtonPressed:(id)sender;
-- (IBAction)rewindButtonPressed:(id)sender;
-
-- (IBAction)captionButtonTapped:(id)sender;
-- (IBAction)videoQualityButtonTapped:(id)sender;
+- (IBAction)addNoteButtonTapped:(UIButton *)sender;
 
 - (IBAction)handleSingleTap:(id)sender;
 - (IBAction)handleSwipeLeft:(id)sender;

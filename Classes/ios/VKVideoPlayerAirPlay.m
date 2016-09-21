@@ -94,17 +94,14 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 - (void)changePlayerSteteFrom:(VKVideoPlayerState)oldState to:(VKVideoPlayerState)newState {
   switch (newState) {
     case VKVideoPlayerStateContentLoading:
-      self.externalView.messageLabel.hidden = YES;
       self.externalView.playerLayerView.hidden = YES;
       [self.externalView.activityIndicator startAnimating];
       break;
     case VKVideoPlayerStateSuspend:
-      self.externalView.messageLabel.hidden = NO;
       self.externalView.playerLayerView.hidden = YES;
       [self.externalView.activityIndicator stopAnimating];
       break;
     case VKVideoPlayerStateContentPlaying:
-      self.externalView.messageLabel.hidden = YES;
       self.externalView.playerLayerView.hidden = NO;
       [self.externalView.activityIndicator stopAnimating];
       break;
@@ -160,7 +157,6 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 - (VKVideoPlayerView*)airPlayerViewWithFrame:(CGRect)frame {
   VKVideoPlayerView* playerView = [[VKVideoPlayerView alloc] initWithFrame:frame];
   playerView.controls.hidden = YES;
-  playerView.externalDeviceView.hidden = YES;
   playerView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
   return playerView;
 }

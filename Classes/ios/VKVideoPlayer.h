@@ -65,6 +65,8 @@ typedef enum {
 @class VKVideoPlayer;
 @protocol VKVideoPlayerDelegate <NSObject>
 @optional
+
+- (void)addVideoNote:(VKVideoPlayer *)videoPlayer;
 - (BOOL)shouldVideoPlayer:(VKVideoPlayer*)videoPlayer changeStateTo:(VKVideoPlayerState)toState;
 - (void)videoPlayer:(VKVideoPlayer*)videoPlayer willChangeStateTo:(VKVideoPlayerState)toState;
 - (void)videoPlayer:(VKVideoPlayer*)videoPlayer didChangeStateFrom:(VKVideoPlayerState)fromState;

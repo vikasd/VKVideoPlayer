@@ -84,36 +84,12 @@
 #pragma mark - VKVideoPlayerControllerDelegate
 - (void)videoPlayer:(VKVideoPlayer*)videoPlayer didControlByEvent:(VKVideoPlayerControlEvent)event {
   NSLog(@"%s event:%d", __FUNCTION__, event);
-  __weak __typeof(self) weakSelf = self;
 
   if (event == VKVideoPlayerControlEventTapDone) {
     [self dismissViewControllerAnimated:YES completion:nil];
   }
   
   if (event == VKVideoPlayerControlEventTapCaption) {
-    RUN_ON_UI_THREAD(^{
-      VKPickerButton *button = self.player.view.captionButton;
-      NSArray *subtitleList = @[@"JP", @"EN"];
-      
-      if (button.isPresented) {
-        [button dismiss];
-      } else {
-        weakSelf.player.view.controlHideCountdown = -1;
-        [button presentFromViewController:weakSelf title:NSLocalizedString(@"settings.captionSection.subtitleLanguageCell.text", nil) items:subtitleList formatCellBlock:^(UITableViewCell *cell, id item) {
-          
-          NSString* code = (NSString*)item;
-          cell.textLabel.text = code;
-          cell.detailTextLabel.text = [NSString stringWithFormat:@"%@%%", @"50"];
-        } isSelectedBlock:^BOOL(id item) {
-          return [item isEqualToString:weakSelf.currentLanguageCode];
-        } didSelectItemBlock:^(id item) {
-          [weakSelf setLanguageCode:item];
-          [button dismiss];
-        } didDismissBlock:^{
-          weakSelf.player.view.controlHideCountdown = [weakSelf.player.view.playerControlsAutoHideTime integerValue];
-        }];
-      }
-    });
   }
 }
 
@@ -127,7 +103,6 @@
   }
   if (caption) {
     [self.player setCaptionToBottom:caption];
-    [self.player.view.captionButton setTitle:[code uppercaseString] forState:UIControlStateNormal];
   }
 }
 
