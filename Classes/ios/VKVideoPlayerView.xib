@@ -5,7 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <customFonts key="customFonts">
-        <mutableArray key="Robo_VKVideoPlayer.ttf">
+        <mutableArray key="Robo.ttf">
             <string>Robo</string>
             <string>Robo</string>
             <string>Robo</string>
@@ -53,8 +53,8 @@
                     <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 </view>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="watermark" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WtY-bg-VEo">
-                    <rect key="frame" x="0.0" y="0.0" width="85" height="21"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="252" text="watermark" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WtY-bg-VEo">
+                    <rect key="frame" x="10" y="10" width="85" height="21"/>
                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
@@ -208,6 +208,7 @@
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="56" secondAttribute="bottom" id="4BB-b5-1t5"/>
                 <constraint firstAttribute="trailing" secondItem="Zo3-cg-Ei9" secondAttribute="trailing" id="65U-am-9Sh"/>
+                <constraint firstItem="WtY-bg-VEo" firstAttribute="top" secondItem="1" secondAttribute="top" constant="10" id="C88-Wz-05l"/>
                 <constraint firstItem="Zo3-cg-Ei9" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="Ipi-Qm-eBF"/>
                 <constraint firstItem="54" firstAttribute="centerX" secondItem="1" secondAttribute="centerX" id="NI4-xP-dmd"/>
                 <constraint firstItem="56" firstAttribute="top" secondItem="1" secondAttribute="top" id="QwM-Cu-9IZ"/>
@@ -216,6 +217,7 @@
                 <constraint firstAttribute="trailing" secondItem="31" secondAttribute="trailing" id="az2-54-bYB"/>
                 <constraint firstAttribute="bottom" secondItem="31" secondAttribute="bottom" id="bKA-bA-znr"/>
                 <constraint firstItem="54" firstAttribute="centerY" secondItem="1" secondAttribute="centerY" id="bvw-Vh-Bdu"/>
+                <constraint firstItem="WtY-bg-VEo" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="10" id="jdO-ho-q2m"/>
                 <constraint firstItem="31" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="kzW-59-9nJ"/>
                 <constraint firstItem="Zo3-cg-Ei9" firstAttribute="top" secondItem="1" secondAttribute="top" id="vbs-sg-r1Y"/>
                 <constraint firstItem="56" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="wfe-bn-iq4"/>
