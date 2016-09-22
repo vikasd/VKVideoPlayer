@@ -129,10 +129,12 @@ VKVideoPlayerViewDelegate
 @property (nonatomic, assign) CGRect portraitFrame;
 @property (nonatomic, assign) CGRect landscapeFrame;
 @property (nonatomic, assign) BOOL forceRotate;
+@property (nonatomic, assign) BOOL stopAnimation;
 
 
 - (id)initWithVideoPlayerView:(VKVideoPlayerView*)videoPlayerView;
 
+- (void)animateWatermark;
 - (void)seekToLastWatchedDuration;
 - (void)seekToTimeInSecond:(float)sec userAction:(BOOL)isUserAction completionHandler:(void (^)(BOOL finished))completionHandler;
 - (BOOL)isPlayingVideo;

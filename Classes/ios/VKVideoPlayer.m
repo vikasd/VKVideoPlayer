@@ -12,6 +12,7 @@
 #import "NSObject+VKFoundation.h"
 #import "VKVideoPlayerExternalMonitor.h"
 
+#define ARC4RANDOM_MAX 0x100000000
 
 #define VKCaptionPadding 10
 #define degreesToRadians(x) (M_PI * x / 180.0f)
@@ -537,6 +538,38 @@ typedef enum {
     return [self.playerItem.accessLog.events.lastObject observedBitrate]/1000;
 }
 
+
+- (void)animateWatermark {
+
+    CGFloat width = CGRectGetWidth(self.view.bounds);
+    CGFloat height = CGRectGetHeight(self.view.bounds);
+    CGFloat labelWidth = CGRectGetWidth(self.view.watermarkLabel.frame);
+    CGFloat labelHeight = CGRectGetHeight(self.view.watermarkLabel.frame);
+    CGFloat min = 10.0;
+    CGPoint point = CGPointZero;
+    
+    int random = rand() % 4;
+    
+    if (random == 0) {
+        point = CGPointMake(min, min);
+    } else if (random == 1) {
+        point = CGPointMake(min, height - labelHeight - min);
+    } else if (random == 2) {
+        point = CGPointMake(width - labelWidth - min, min);
+    } else if (random == 3) {
+        point = CGPointMake(width - labelWidth - min, height - labelHeight - min);
+    }
+    
+    [UIView animateWithDuration:10.0
+                          delay:0.0 options:UIViewAnimationOptionCurveEaseOut
+                     animations:^{
+                         self.view.watermarkLabel.transform = CGAffineTransformMakeTranslation(point.x, point.y);
+                     } completion:^(BOOL finished) {
+                         if (finished && !self.stopAnimation) {
+                             [self animateWatermark];
+                         }
+                     }];
+}
 
 #pragma mark -
 
