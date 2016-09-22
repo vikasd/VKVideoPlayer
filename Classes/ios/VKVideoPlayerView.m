@@ -88,7 +88,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
     [self.addNoteButton setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
     [self.addNoteButton setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];
     
-    UIFont *roboFont = [UIFont fontWithName:@"Robo" size:[VKSharedUtility isPad] ? 100.0 : 50];
+    UIFont *roboFont = [UIFont fontWithName:@"Robo" size:[VKSharedUtility isPad] ? 80.0 : 50];
     self.bigPlayButton.titleLabel.font = roboFont;
     self.addNoteButton.titleLabel.font = roboFont;
     
