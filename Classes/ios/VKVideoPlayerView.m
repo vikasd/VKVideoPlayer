@@ -88,9 +88,15 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
     [self.addNoteButton setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
     [self.addNoteButton setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];
     
+    UIFont *roboFont = [UIFont fontWithName:@"Robo" size:[VKSharedUtility isPad] ? 100.0 : 50];
+    self.bigPlayButton.titleLabel.font = roboFont;
+    self.addNoteButton.titleLabel.font = roboFont;
+    
     self.scrubber.minimumTrackTintColor = controlColor;
     self.scrubber.maximumTrackTintColor = [UIColor lightGrayColor];
     self.scrubber.thumbTintColor = controlColor;
+    
+    self.buttonHolderView.hidden = YES;
 }
 
 - (id)initWithFrame:(CGRect)frame {

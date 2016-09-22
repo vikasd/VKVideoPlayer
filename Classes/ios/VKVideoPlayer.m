@@ -375,6 +375,7 @@ typedef enum {
             break;
     };
 }
+
 - (void)loadVideoWithStreamURL:(NSURL*)streamURL {
     [self loadVideoWithTrack:[[VKVideoPlayerTrack alloc] initWithStreamURL:streamURL]];
 }
@@ -725,7 +726,7 @@ typedef enum {
             case VKVideoPlayerStateContentPlaying:
                 break;
             case VKVideoPlayerStateContentPaused:
-                self.view.buttonOverlayView.hidden = self.view.addNoteButton.hidden = self.view.bigPlayButton.hidden = YES;
+                self.view.buttonOverlayView.hidden =  self.view.buttonHolderView.hidden = YES;
                 break;
             case VKVideoPlayerStateDismissed:
                 break;
@@ -757,7 +758,7 @@ typedef enum {
                 [self.view setPlayButtonsSelected:YES];
                 self.view.playerLayerView.hidden = NO;
                 self.track.lastDurationWatchedInSeconds = [NSNumber numberWithFloat:[self currentTime]];
-                self.view.buttonOverlayView.hidden = self.view.addNoteButton.hidden = self.view.bigPlayButton.hidden = NO;
+                self.view.buttonOverlayView.hidden = self.view.buttonHolderView.hidden = NO;
                 [self.player pause];
                 break;
             case VKVideoPlayerStateSuspend:
@@ -1184,9 +1185,9 @@ typedef enum {
             break;
     }
     
-    if ((1 << rotateToOrientation) & self.supportedOrientations && rotateToOrientation != self.visibleInterfaceOrientation) {
-        [self performOrientationChange:rotateToOrientation];
-    }
+//    if ((1 << rotateToOrientation) & self.supportedOrientations && rotateToOrientation != self.visibleInterfaceOrientation) {
+//        [self performOrientationChange:rotateToOrientation];
+//    }
 }
 
 - (void)performOrientationChange:(UIInterfaceOrientation)deviceOrientation {

@@ -146,7 +146,7 @@
                                 <constraint firstAttribute="trailing" secondItem="5Qd-b3-byZ" secondAttribute="trailing" constant="10" id="yXK-2c-K21"/>
                             </constraints>
                         </view>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dt4-Ds-xZD">
+                        <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dt4-Ds-xZD">
                             <rect key="frame" x="210" y="260" width="180" height="80"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="169-ch-vv0">

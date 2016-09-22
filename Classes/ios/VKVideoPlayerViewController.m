@@ -109,6 +109,14 @@
   }
 }
 
+- (void)videoPlayer:(VKVideoPlayer *)videoPlayer willStartVideo:(id<VKVideoPlayerTrackProtocol>)track {
+}
+
+- (void)videoPlayer:(VKVideoPlayer *)videoPlayer didStartVideo:(id<VKVideoPlayerTrackProtocol>)track {
+    [videoPlayer pauseContent];
+}
+
+
 #pragma mark - Orientation
 //- (BOOL)shouldAutorotate {
 //  return YES;
