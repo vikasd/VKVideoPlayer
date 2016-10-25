@@ -540,6 +540,10 @@ typedef enum {
 
 
 - (void)animateWatermark {
+    
+    if (self.stopAnimation) {
+        return;
+    }
 
     CGFloat width = CGRectGetWidth(self.view.bounds);
     CGFloat height = CGRectGetHeight(self.view.bounds);
@@ -565,10 +569,18 @@ typedef enum {
                      animations:^{
                          self.view.watermarkLabel.transform = CGAffineTransformMakeTranslation(point.x, point.y);
                      } completion:^(BOOL finished) {
-                         if (finished && !self.stopAnimation) {
+                         if (finished) {
                              [self animateWatermark];
                          }
                      }];
+}
+
+- (void)resetWatermarkAnimation {
+    
+    self.stopAnimation = YES;
+    self.view.watermarkLabel.frame = CGRectMake(10, 10, CGRectGetWidth(self.view.watermarkLabel.frame), CGRectGetHeight(self.view.watermarkLabel.frame));
+    [self performSelector:@selector(animateWatermark) withObject:nil afterDelay:10.0];
+    self.stopAnimation = NO;
 }
 
 #pragma mark -
