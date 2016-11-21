@@ -110,7 +110,6 @@
 }
 
 - (void)videoPlayer:(VKVideoPlayer *)videoPlayer willStartVideo:(id<VKVideoPlayerTrackProtocol>)track {
-    [videoPlayer animateWatermark];
 }
 
 - (void)videoPlayer:(VKVideoPlayer *)videoPlayer didStartVideo:(id<VKVideoPlayerTrackProtocol>)track {

@@ -54,6 +54,10 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
     self.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
     [self addSubview:self.view];
     
+    // ** To solve audio playback issue when device is in silent mode.
+    AVAudioSession *audioSession = [AVAudioSession sharedInstance];
+    [audioSession setCategory:AVAudioSessionCategoryPlayback error:NULL];
+    
     self.currentTimeLabel.font = THEMEFONT(@"fontRegular", DEVICEVALUE(16.0f, 10.0f));
     self.currentTimeLabel.textColor = THEMECOLOR(@"colorFont4");
     self.totalTimeLabel.font = THEMEFONT(@"fontRegular", DEVICEVALUE(16.0f, 10.0f));

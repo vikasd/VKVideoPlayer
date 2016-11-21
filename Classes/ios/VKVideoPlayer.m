@@ -38,6 +38,12 @@ typedef enum {
 @property (nonatomic, assign) BOOL scrubbing;
 @property (nonatomic, assign) NSTimeInterval beforeSeek;
 @property (nonatomic, assign) NSTimeInterval previousPlaybackTime;
+@property (nonatomic, strong) NSTimer *animationTimer;
+@property (nonatomic, assign) BOOL moveRight;
+@property (nonatomic, assign) BOOL moveBottom;
+@property (nonatomic, assign) BOOL moveLeft;
+@property (nonatomic, assign) BOOL moveTop;
+
 @property (nonatomic, assign) double previousIndicatedBandwidth;
 
 @property (nonatomic, strong) id timeObserver;
@@ -538,49 +544,83 @@ typedef enum {
     return [self.playerItem.accessLog.events.lastObject observedBitrate]/1000;
 }
 
-
 - (void)animateWatermark {
     
-    if (self.stopAnimation) {
-        return;
-    }
-
-    CGFloat width = CGRectGetWidth(self.view.bounds);
-    CGFloat height = CGRectGetHeight(self.view.bounds);
-    CGFloat labelWidth = CGRectGetWidth(self.view.watermarkLabel.frame);
-    CGFloat labelHeight = CGRectGetHeight(self.view.watermarkLabel.frame);
-    CGFloat min = 10.0;
-    CGPoint point = CGPointZero;
+    float minX = CGRectGetMinX(self.view.watermarkLabel.frame);
+    float minY = CGRectGetMinY(self.view.watermarkLabel.frame);
+    float maxX = CGRectGetMaxX(self.view.watermarkLabel.frame);
+    float maxY = CGRectGetMaxY(self.view.watermarkLabel.frame);
     
-    int random = rand() % 4;
+    float width = CGRectGetWidth(self.view.bounds) - 10;
+    float height = CGRectGetHeight(self.view.bounds) - 10;
+    float offset = 5;
+    float x = minX;
+    float y = minY;
     
-    if (random == 0) {
-        point = CGPointMake(min, min);
-    } else if (random == 1) {
-        point = CGPointMake(min, height - labelHeight - min);
-    } else if (random == 2) {
-        point = CGPointMake(width - labelWidth - min, min);
-    } else if (random == 3) {
-        point = CGPointMake(width - labelWidth - min, height - labelHeight - min);
+    
+    if (_moveRight && maxX <= width) {
+        x += offset;
     }
     
-    [UIView animateWithDuration:10.0
-                          delay:0.0 options:UIViewAnimationOptionCurveEaseOut
+    if (_moveLeft && minX >= 10) {
+        x -= offset;
+    }
+    
+    if (_moveBottom && maxY <= height) {
+        y += offset;
+    }
+    
+    if (_moveTop && minY >= 10) {
+        y -= offset;
+    }
+    
+    if (maxX >= width) {
+        _moveRight = NO;
+        _moveLeft = !_moveRight;
+    }
+    
+    if (x <= 10) {
+        _moveLeft = NO;
+        _moveRight = !_moveLeft;
+    }
+    
+    if (maxY >= height) {
+        _moveBottom = NO;
+        _moveTop = !_moveBottom;
+    }
+    
+    if(y <= 10) {
+        _moveTop = NO;
+        _moveBottom = !_moveTop;
+    }
+    
+    
+    __weak VKVideoPlayer *weakSelf = self;
+    [UIView animateWithDuration:0.3
                      animations:^{
-                         self.view.watermarkLabel.transform = CGAffineTransformMakeTranslation(point.x, point.y);
-                     } completion:^(BOOL finished) {
-                         if (finished) {
-                             [self animateWatermark];
-                         }
+                         weakSelf.view.watermarkLabel.frame = CGRectMake(x, y, CGRectGetWidth(self.view.watermarkLabel.frame), CGRectGetHeight(self.view.watermarkLabel.frame));
                      }];
 }
 
-- (void)resetWatermarkAnimation {
+- (void)startWatermarkAnimation {
     
-    self.stopAnimation = YES;
-    self.view.watermarkLabel.frame = CGRectMake(10, 10, CGRectGetWidth(self.view.watermarkLabel.frame), CGRectGetHeight(self.view.watermarkLabel.frame));
-    [self performSelector:@selector(animateWatermark) withObject:nil afterDelay:10.0];
-    self.stopAnimation = NO;
+    _moveRight = _moveBottom = YES;
+    _moveLeft = !_moveRight;
+    _moveTop = !_moveBottom;
+    
+    _animationTimer = [NSTimer timerWithTimeInterval:0.2
+                                              target:self
+                                            selector:@selector(animateWatermark)
+                                            userInfo:nil
+                                             repeats:YES];
+    [[NSRunLoop mainRunLoop] addTimer:_animationTimer forMode:NSRunLoopCommonModes];
+}
+
+- (void)stopWatermarkAnimation {
+    
+    [_animationTimer invalidate];
+    _animationTimer = nil;
+    self.view.watermarkLabel.frame = CGRectMake(10.0, 10.0, CGRectGetWidth(self.view.watermarkLabel.frame), CGRectGetHeight(self.view.watermarkLabel.frame));
 }
 
 #pragma mark -

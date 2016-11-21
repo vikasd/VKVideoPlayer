@@ -134,8 +134,8 @@ VKVideoPlayerViewDelegate
 
 - (id)initWithVideoPlayerView:(VKVideoPlayerView*)videoPlayerView;
 
-- (void)animateWatermark;
-- (void)resetWatermarkAnimation;
+- (void)startWatermarkAnimation;
+- (void)stopWatermarkAnimation;
 - (void)seekToLastWatchedDuration;
 - (void)seekToTimeInSecond:(float)sec userAction:(BOOL)isUserAction completionHandler:(void (^)(BOOL finished))completionHandler;
 - (BOOL)isPlayingVideo;
