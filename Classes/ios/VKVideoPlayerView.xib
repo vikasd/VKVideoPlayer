@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -136,19 +135,14 @@
                         <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dt4-Ds-xZD">
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="169-ch-vv0">
-                                    <constraints>
-                                        <constraint firstAttribute="width" secondItem="169-ch-vv0" secondAttribute="height" multiplier="1:1" id="fTr-Zx-XR0"/>
-                                    </constraints>
-                                    <fontDescription key="fontDescription" name="Robo" family="Robo" pointSize="80"/>
+                                    <fontDescription key="fontDescription" name="Robo" family="Robo" pointSize="50"/>
                                     <state key="normal" title="Q"/>
                                     <connections>
                                         <action selector="playButtonTapped:" destination="-1" eventType="touchUpInside" id="wHK-Ly-fNf"/>
                                     </connections>
                                 </button>
-                                <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ed4-pv-im9">
-                                    <frame key="frameInset" minX="100" width="80" height="80"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <fontDescription key="fontDescription" name="Robo" family="Robo" pointSize="80"/>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ed4-pv-im9">
+                                    <fontDescription key="fontDescription" name="Robo" family="Robo" pointSize="50"/>
                                     <state key="normal" title="X">
                                         <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -158,28 +152,26 @@
                                     </connections>
                                 </button>
                             </subviews>
-                            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <constraints>
-                                <constraint firstAttribute="bottom" secondItem="169-ch-vv0" secondAttribute="bottom" id="3nS-iL-Diu"/>
-                                <constraint firstAttribute="width" constant="80" id="We3-aX-VPw">
-                                    <variation key="heightClass=regular-widthClass=compact" constant="60"/>
-                                </constraint>
-                                <constraint firstAttribute="height" constant="80" id="co1-4M-Wsg">
-                                    <variation key="heightClass=regular-widthClass=compact" constant="60"/>
-                                </constraint>
-                                <constraint firstItem="169-ch-vv0" firstAttribute="top" secondItem="dt4-Ds-xZD" secondAttribute="top" id="h5y-6e-Syv"/>
-                                <constraint firstItem="169-ch-vv0" firstAttribute="leading" secondItem="dt4-Ds-xZD" secondAttribute="leading" id="hVv-pQ-aUx"/>
+                                <constraint firstAttribute="bottom" secondItem="169-ch-vv0" secondAttribute="bottom" id="86V-xC-Sv5"/>
+                                <constraint firstItem="169-ch-vv0" firstAttribute="leading" secondItem="dt4-Ds-xZD" secondAttribute="leading" id="MSh-xP-q16"/>
+                                <constraint firstItem="169-ch-vv0" firstAttribute="top" secondItem="dt4-Ds-xZD" secondAttribute="top" id="PVG-FX-xch"/>
+                                <constraint firstAttribute="trailing" secondItem="ed4-pv-im9" secondAttribute="trailing" id="UHC-Qa-OnT"/>
+                                <constraint firstItem="169-ch-vv0" firstAttribute="width" secondItem="ed4-pv-im9" secondAttribute="width" id="go6-Sr-NIr"/>
+                                <constraint firstItem="ed4-pv-im9" firstAttribute="centerY" secondItem="169-ch-vv0" secondAttribute="centerY" id="nnF-BN-cVS"/>
+                                <constraint firstItem="ed4-pv-im9" firstAttribute="leading" secondItem="169-ch-vv0" secondAttribute="trailing" constant="10" id="oxP-P0-DWf"/>
                             </constraints>
                         </view>
                     </subviews>
                     <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                     <gestureRecognizers/>
                     <constraints>
-                        <constraint firstItem="dt4-Ds-xZD" firstAttribute="centerX" secondItem="31" secondAttribute="centerX" id="HBf-bQ-lmT"/>
+                        <constraint firstItem="dt4-Ds-xZD" firstAttribute="centerY" secondItem="31" secondAttribute="centerY" id="2X7-Eq-V7e"/>
                         <constraint firstAttribute="trailing" secondItem="3" secondAttribute="trailing" id="RkQ-vU-gtR"/>
                         <constraint firstAttribute="bottom" secondItem="3" secondAttribute="bottom" id="fIs-HJ-jeZ"/>
-                        <constraint firstItem="dt4-Ds-xZD" firstAttribute="centerY" secondItem="31" secondAttribute="centerY" id="iAR-6V-xSy"/>
                         <constraint firstItem="3" firstAttribute="leading" secondItem="31" secondAttribute="leading" id="mcs-fv-EsC"/>
+                        <constraint firstItem="dt4-Ds-xZD" firstAttribute="centerX" secondItem="31" secondAttribute="centerX" id="qnj-as-xa0"/>
                     </constraints>
                 </view>
                 <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="54">
@@ -205,6 +197,7 @@
                 <constraint firstItem="Zo3-cg-Ei9" firstAttribute="top" secondItem="1" secondAttribute="top" id="vbs-sg-r1Y"/>
                 <constraint firstItem="56" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="wfe-bn-iq4"/>
                 <constraint firstAttribute="trailing" secondItem="56" secondAttribute="trailing" id="wuI-WU-Uyb"/>
+                <constraint firstItem="54" firstAttribute="height" secondItem="ed4-pv-im9" secondAttribute="height" id="ytd-YO-Pbn"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
