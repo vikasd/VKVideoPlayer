@@ -101,6 +101,8 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
     self.scrubber.thumbTintColor = controlColor;
     
     self.buttonHolderView.hidden = YES;
+    
+//    _quesArray = @[@3, @10, @15, @20, @23, @30];
 }
 
 - (id)initWithFrame:(CGRect)frame {
@@ -122,6 +124,20 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 
 #pragma - VKVideoPlayerViewDelegates
 
+- (void)loadQuesOnScrubber {
+
+    for (NSNumber *number in _quesArray) {
+        NSInteger sec = [number integerValue];
+        
+        float x = (sec / self.scrubber.maximumValue) * CGRectGetWidth(_scrubberHolderView.bounds);
+        
+        UIButton *button = [UIButton new];
+        button.backgroundColor = [UIColor redColor];
+        button.frame = CGRectMake(x, 0, 10, CGRectGetHeight(_scrubberHolderView.bounds));
+        [_scrubberHolderView addSubview:button];
+    }
+}
+
 - (IBAction)playButtonTapped:(id)sender {
     
     UIButton* playButton;
@@ -139,6 +155,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 }
 
 - (IBAction)addNoteButtonTapped:(UIButton *)sender {
+    [self.delegate noteButtonTapped];
 }
 
 - (IBAction)fullscreenButtonTapped:(id)sender {
@@ -169,6 +186,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
     RUN_ON_UI_THREAD(^{
         self.scrubber.maximumValue = [duration floatValue];
         self.scrubber.hidden = NO;
+//        [self loadQuesOnScrubber];
     });
 }
 

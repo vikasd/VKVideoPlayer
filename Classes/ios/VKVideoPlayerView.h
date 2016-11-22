@@ -67,10 +67,9 @@
 @property (nonatomic, readonly) BOOL isControlsHidden;
 
 @property (nonatomic, weak) id<VKVideoPlayerViewDelegate> delegate;
-
 @property (nonatomic, assign) NSInteger controlHideCountdown;
-
 @property (nonatomic, strong) NSNumber* playerControlsAutoHideTime;
+@property (nonatomic, strong) NSArray *quesArray;
 
 - (IBAction)fullscreenButtonTapped:(id)sender;
 - (IBAction)playButtonTapped:(id)sender;
