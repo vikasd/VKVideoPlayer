@@ -9,56 +9,56 @@
 #import "VKVideoPlayerTrack.h"
 
 typedef enum {
-  // The video was flagged as blocked due to licensing restrictions (geo or device).
-  kVideoPlayerErrorVideoBlocked = 900,
-  
-  // There was an error fetching the stream.
-  kVideoPlayerErrorFetchStreamError,
-  
-  // Could not find the stream type for video.
-  kVideoPlayerErrorStreamNotFound,
-  
-  // There was an error loading the video as an asset.
-  kVideoPlayerErrorAssetLoadError,
-  
-  // There was an error loading the video's duration.
-  kVideoPlayerErrorDurationLoadError,
-  
-  // AVPlayer failed to load the asset.
-  kVideoPlayerErrorAVPlayerFail,
-  
-  // AVPlayerItem failed to load the asset.
-  kVideoPlayerErrorAVPlayerItemFail,
-  
-  // Chromecast failed to load the stream.
-  kVideoPlayerErrorChromecastLoadFail,
-  
-  // There was an unknown error.
-  kVideoPlayerErrorUnknown,
-  
+    // The video was flagged as blocked due to licensing restrictions (geo or device).
+    kVideoPlayerErrorVideoBlocked = 900,
+    
+    // There was an error fetching the stream.
+    kVideoPlayerErrorFetchStreamError,
+    
+    // Could not find the stream type for video.
+    kVideoPlayerErrorStreamNotFound,
+    
+    // There was an error loading the video as an asset.
+    kVideoPlayerErrorAssetLoadError,
+    
+    // There was an error loading the video's duration.
+    kVideoPlayerErrorDurationLoadError,
+    
+    // AVPlayer failed to load the asset.
+    kVideoPlayerErrorAVPlayerFail,
+    
+    // AVPlayerItem failed to load the asset.
+    kVideoPlayerErrorAVPlayerItemFail,
+    
+    // Chromecast failed to load the stream.
+    kVideoPlayerErrorChromecastLoadFail,
+    
+    // There was an unknown error.
+    kVideoPlayerErrorUnknown,
+    
 } VKVideoPlayerErrorCode;
 
 
 typedef enum {
-  VKVideoPlayerStateUnknown,
-  VKVideoPlayerStateContentLoading,
-  VKVideoPlayerStateContentPlaying,
-  VKVideoPlayerStateContentPaused,
-  VKVideoPlayerStateSuspend,
-  VKVideoPlayerStateDismissed,
-  VKVideoPlayerStateError
+    VKVideoPlayerStateUnknown,
+    VKVideoPlayerStateContentLoading,
+    VKVideoPlayerStateContentPlaying,
+    VKVideoPlayerStateContentPaused,
+    VKVideoPlayerStateSuspend,
+    VKVideoPlayerStateDismissed,
+    VKVideoPlayerStateError
 } VKVideoPlayerState;
 
 typedef enum {
-  VKVideoPlayerControlEventTapPlayerView,
-  VKVideoPlayerControlEventTapNext,
-  VKVideoPlayerControlEventTapPrevious,
-  VKVideoPlayerControlEventTapDone,
-  VKVideoPlayerControlEventTapFullScreen,
-  VKVideoPlayerControlEventTapCaption,
-  VKVideoPlayerControlEventTapVideoQuality,
-  VKVideoPlayerControlEventSwipeNext,
-  VKVideoPlayerControlEventSwipePrevious,
+    VKVideoPlayerControlEventTapPlayerView,
+    VKVideoPlayerControlEventTapNext,
+    VKVideoPlayerControlEventTapPrevious,
+    VKVideoPlayerControlEventTapDone,
+    VKVideoPlayerControlEventTapFullScreen,
+    VKVideoPlayerControlEventTapCaption,
+    VKVideoPlayerControlEventTapVideoQuality,
+    VKVideoPlayerControlEventSwipeNext,
+    VKVideoPlayerControlEventSwipePrevious,
 } VKVideoPlayerControlEvent;
 
 
@@ -67,6 +67,7 @@ typedef enum {
 @optional
 
 - (void)addVideoNote:(VKVideoPlayer *)videoPlayer;
+- (void)noteSelected:(NSString *)noteId;
 - (BOOL)shouldVideoPlayer:(VKVideoPlayer*)videoPlayer changeStateTo:(VKVideoPlayerState)toState;
 - (void)videoPlayer:(VKVideoPlayer*)videoPlayer willChangeStateTo:(VKVideoPlayerState)toState;
 - (void)videoPlayer:(VKVideoPlayer*)videoPlayer didChangeStateFrom:(VKVideoPlayerState)fromState;

@@ -101,8 +101,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
     self.scrubber.thumbTintColor = controlColor;
     
     self.buttonHolderView.hidden = YES;
-    
-//    _quesArray = @[@3, @10, @15, @20, @23, @30];
+    self.cuesArray = [NSMutableArray array];
 }
 
 - (id)initWithFrame:(CGRect)frame {
@@ -124,18 +123,112 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 
 #pragma - VKVideoPlayerViewDelegates
 
-- (void)loadQuesOnScrubber {
-
-    for (NSNumber *number in _quesArray) {
-        NSInteger sec = [number integerValue];
-        
-        float x = (sec / self.scrubber.maximumValue) * CGRectGetWidth(_scrubberHolderView.bounds);
-        
-        UIButton *button = [UIButton new];
-        button.backgroundColor = [UIColor redColor];
-        button.frame = CGRectMake(x, 0, 10, CGRectGetHeight(_scrubberHolderView.bounds));
-        [_scrubberHolderView addSubview:button];
+- (void)loadCuesOnScrubber {
+    
+    for (int i = 0; i < _cuesArray.count; i++) {
+        [self addCue:_cuesArray[i] atIndex:i];
     }
+}
+
+- (void)removeCuesFromScrubber {
+    
+    for (UIView *view in _scrubberHolderView.subviews) {
+        if ([view isMemberOfClass:[UIButton class]]) {
+            [view removeFromSuperview];
+        }
+    }
+}
+
+- (void)removeCueFromScrubber:(NSString *)cueId {
+    
+    NSInteger index = [_cuesArray indexOfObjectPassingTest:^BOOL(NSDictionary *obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        
+        if ([obj[@"cueId"] isEqualToString:cueId]) {
+            *stop = YES;
+            return YES;
+        }
+        return NO;
+    }];
+    
+    if (index != NSNotFound) {
+        
+        [_cuesArray removeObjectAtIndex:index];
+        NSInteger subViewindex = [_scrubberHolderView.subviews indexOfObjectPassingTest:^BOOL(UIView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            
+            if (obj.tag == (index +1)) {
+                *stop = YES;
+                return YES;
+            }
+            return NO;
+        }];
+        
+        if (subViewindex != NSNotFound) {
+            
+            UIView *view = _scrubberHolderView.subviews[subViewindex];
+            [view removeFromSuperview];
+        }
+    }
+}
+
+- (void)addCueToScrubber:(NSDictionary *)cue {
+    
+    NSInteger index = [_cuesArray indexOfObjectPassingTest:^BOOL(NSDictionary *obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        
+        if ([obj[@"cueId"] isEqualToString:cue[@"cueId"]]) {
+            *stop = YES;
+            return YES;
+        }
+        return NO;
+    }];
+    
+    if (index == NSNotFound) {
+        
+        [_cuesArray addObject:cue];
+        index = [_cuesArray indexOfObject:cue];
+        [self addCue:cue atIndex:index];
+    } else {
+        
+        [_cuesArray removeObjectAtIndex:index];
+        [_cuesArray insertObject:cue atIndex:index];
+        
+        NSInteger subViewindex = [_scrubberHolderView.subviews indexOfObjectPassingTest:^BOOL(UIView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            
+            if (obj.tag == (index +1)) {
+                *stop = YES;
+                return YES;
+            }
+            return NO;
+        }];
+        
+        if (subViewindex != NSNotFound) {
+            
+            UIButton *button = _scrubberHolderView.subviews[subViewindex];
+            UIColor *color = [cue[@"important"] boolValue] ? [VKUtility colorWithHexString:@"#DA5C59"] : [VKUtility colorWithHexString:@"#F7ED82"];
+            [button setTitleColor:color forState:UIControlStateNormal];
+        }
+    }
+}
+
+- (void)addCue:(NSDictionary *)cue atIndex:(NSInteger)index {
+    
+    NSNumber *number = cue[@"duration"];
+    NSInteger sec = [number integerValue];
+    float x = (sec / _videoDuration) * CGRectGetWidth(self.scrubber.bounds);
+    
+    x+= CGRectGetMinX(self.scrubber.frame);
+    
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+    button.tag = index + 1; // 1 based index;
+    button.frame = [VKSharedUtility isPad] ? CGRectMake(x-15, 0, 30, 50) : CGRectMake(x-10, 0, 20, 40);
+    
+    button.titleLabel.font = [UIFont fontWithName:@"robo" size:[VKSharedUtility isPad] ? 40.0 : 28.0];
+    [button setTitle:@"Ë" forState:UIControlStateNormal];
+    
+    UIColor *color = [cue[@"important"] boolValue] ? [VKUtility colorWithHexString:@"#DA5C59"] : [VKUtility colorWithHexString:@"#F7ED82"];
+    [button setTitleColor:color forState:UIControlStateNormal];
+    [button addTarget:self action:@selector(noteCueTapped:) forControlEvents:UIControlEventTouchUpInside];
+    
+    [_scrubberHolderView addSubview:button];
 }
 
 - (IBAction)playButtonTapped:(id)sender {
@@ -155,8 +248,43 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 }
 
 - (IBAction)addNoteButtonTapped:(UIButton *)sender {
+    
+    if ([VKSharedUtility isPad]) {
+        [self.delegate noteButtonTapped];
+    } else {
+        
+        if (self.fullscreenButton.selected) {
+            [self fullscreenButtonTapped:self.fullscreenButton];
+        }
+        [self.delegate noteButtonTapped];
+    }
+}
+
+- (void)noteCueTapped:(UIButton *)button {
+    
+    // Pause video before opening VNote
+    [self.delegate pauseButtonPressed];
+    [self setPlayButtonsSelected:YES];
+    
+    NSDictionary *cue = _cuesArray[button.tag-1];
+    if ([VKSharedUtility isPad]) {
+        [self.delegate noteSelected:cue[@"cueId"]];
+    } else {
+        if (self.fullscreenButton.selected) {
+            [self fullscreenButtonTapped:self.fullscreenButton];
+        }
+        [self.delegate noteSelected:cue[@"cueId"]];
+    }
+}
+
+- (void)callNoteButtonTappedWithDelay {
     [self.delegate noteButtonTapped];
 }
+
+- (void)callNoteSelectedWithDelay:(NSString *)noteId {
+    [self.delegate noteSelected:noteId];
+}
+
 
 - (IBAction)fullscreenButtonTapped:(id)sender {
     self.fullscreenButton.selected = !self.fullscreenButton.selected;
@@ -186,7 +314,6 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
     RUN_ON_UI_THREAD(^{
         self.scrubber.maximumValue = [duration floatValue];
         self.scrubber.hidden = NO;
-//        [self loadQuesOnScrubber];
     });
 }
 

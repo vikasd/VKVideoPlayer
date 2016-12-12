@@ -23,6 +23,7 @@
 - (void)playButtonPressed;
 - (void)pauseButtonPressed;
 - (void)noteButtonTapped;
+- (void)noteSelected:(NSString *)noteId;
 
 - (void)nextTrackButtonPressed;
 - (void)previousTrackButtonPressed;
@@ -69,11 +70,18 @@
 @property (nonatomic, weak) id<VKVideoPlayerViewDelegate> delegate;
 @property (nonatomic, assign) NSInteger controlHideCountdown;
 @property (nonatomic, strong) NSNumber* playerControlsAutoHideTime;
-@property (nonatomic, strong) NSArray *quesArray;
+@property (nonatomic, strong) NSMutableArray *cuesArray;
+@property (nonatomic, assign) float videoDuration;
+
 
 - (IBAction)fullscreenButtonTapped:(id)sender;
 - (IBAction)playButtonTapped:(id)sender;
 - (IBAction)addNoteButtonTapped:(UIButton *)sender;
+
+- (void)loadCuesOnScrubber;
+- (void)removeCuesFromScrubber;
+- (void)removeCueFromScrubber:(NSString *)cueId;
+- (void)addCueToScrubber:(NSDictionary *)cue;
 
 - (IBAction)handleSingleTap:(id)sender;
 - (IBAction)handleSwipeLeft:(id)sender;
