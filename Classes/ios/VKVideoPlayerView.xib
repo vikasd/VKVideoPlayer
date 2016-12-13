@@ -16,6 +16,7 @@
                 <outlet property="activityIndicator" destination="54" id="55"/>
                 <outlet property="addNoteButton" destination="ed4-pv-im9" id="PQE-oc-Jnx"/>
                 <outlet property="bigPlayButton" destination="169-ch-vv0" id="eHt-hQ-d1R"/>
+                <outlet property="bigPlayButton2" destination="v0X-C0-fL0" id="jG6-PO-A8V"/>
                 <outlet property="bottomControlOverlay" destination="3" id="87"/>
                 <outlet property="buttonHolderView" destination="dt4-Ds-xZD" id="p9t-Ro-TZS"/>
                 <outlet property="buttonOverlayView" destination="Zo3-cg-Ei9" id="M4N-bR-Jyc"/>
@@ -23,6 +24,7 @@
                 <outlet property="currentTimeLabel" destination="83" id="85"/>
                 <outlet property="fullscreenButton" destination="5Qd-b3-byZ" id="F4o-y1-pUP"/>
                 <outlet property="playButton" destination="17" id="25"/>
+                <outlet property="playButtonHolderView" destination="JST-MU-rFB" id="V4f-8Q-ODq"/>
                 <outlet property="playerLayerView" destination="56" id="58"/>
                 <outlet property="scrubber" destination="18" id="26"/>
                 <outlet property="scrubberHolderView" destination="32z-fk-Zew" id="k8r-ny-9BD"/>
@@ -132,16 +134,37 @@
                                 <constraint firstAttribute="trailing" secondItem="5Qd-b3-byZ" secondAttribute="trailing" constant="10" id="yXK-2c-K21"/>
                             </constraints>
                         </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JST-MU-rFB">
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v0X-C0-fL0">
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <fontDescription key="fontDescription" name="Robo" family="Robo" pointSize="50"/>
+                                    <state key="normal" title="Q"/>
+                                    <connections>
+                                        <action selector="playButtonTapped:" destination="-1" eventType="touchUpInside" id="30A-3F-Fcz"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstItem="v0X-C0-fL0" firstAttribute="leading" secondItem="JST-MU-rFB" secondAttribute="leading" id="2hH-CT-o6z"/>
+                                <constraint firstItem="v0X-C0-fL0" firstAttribute="top" secondItem="JST-MU-rFB" secondAttribute="top" id="2iO-qJ-X8X"/>
+                                <constraint firstAttribute="trailing" secondItem="v0X-C0-fL0" secondAttribute="trailing" id="JEK-bu-Bpr"/>
+                                <constraint firstAttribute="bottom" secondItem="v0X-C0-fL0" secondAttribute="bottom" id="oB6-R9-IWv"/>
+                            </constraints>
+                        </view>
                         <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dt4-Ds-xZD">
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="169-ch-vv0">
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <fontDescription key="fontDescription" name="Robo" family="Robo" pointSize="50"/>
                                     <state key="normal" title="Q"/>
                                     <connections>
                                         <action selector="playButtonTapped:" destination="-1" eventType="touchUpInside" id="wHK-Ly-fNf"/>
                                     </connections>
                                 </button>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ed4-pv-im9">
+                                <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ed4-pv-im9">
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <fontDescription key="fontDescription" name="Robo" family="Robo" pointSize="50"/>
                                     <state key="normal" title="X">
                                         <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -158,7 +181,6 @@
                                 <constraint firstItem="169-ch-vv0" firstAttribute="leading" secondItem="dt4-Ds-xZD" secondAttribute="leading" id="MSh-xP-q16"/>
                                 <constraint firstItem="169-ch-vv0" firstAttribute="top" secondItem="dt4-Ds-xZD" secondAttribute="top" id="PVG-FX-xch"/>
                                 <constraint firstAttribute="trailing" secondItem="ed4-pv-im9" secondAttribute="trailing" id="UHC-Qa-OnT"/>
-                                <constraint firstItem="169-ch-vv0" firstAttribute="width" secondItem="ed4-pv-im9" secondAttribute="width" id="go6-Sr-NIr"/>
                                 <constraint firstItem="ed4-pv-im9" firstAttribute="centerY" secondItem="169-ch-vv0" secondAttribute="centerY" id="nnF-BN-cVS"/>
                                 <constraint firstItem="ed4-pv-im9" firstAttribute="leading" secondItem="169-ch-vv0" secondAttribute="trailing" constant="10" id="oxP-P0-DWf"/>
                             </constraints>
@@ -167,7 +189,9 @@
                     <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                     <gestureRecognizers/>
                     <constraints>
+                        <constraint firstItem="JST-MU-rFB" firstAttribute="centerY" secondItem="31" secondAttribute="centerY" id="25H-JC-LQF"/>
                         <constraint firstItem="dt4-Ds-xZD" firstAttribute="centerY" secondItem="31" secondAttribute="centerY" id="2X7-Eq-V7e"/>
+                        <constraint firstItem="JST-MU-rFB" firstAttribute="centerX" secondItem="31" secondAttribute="centerX" id="CBI-Rc-u9n"/>
                         <constraint firstAttribute="trailing" secondItem="3" secondAttribute="trailing" id="RkQ-vU-gtR"/>
                         <constraint firstAttribute="bottom" secondItem="3" secondAttribute="bottom" id="fIs-HJ-jeZ"/>
                         <constraint firstItem="3" firstAttribute="leading" secondItem="31" secondAttribute="leading" id="mcs-fv-EsC"/>
@@ -197,7 +221,6 @@
                 <constraint firstItem="Zo3-cg-Ei9" firstAttribute="top" secondItem="1" secondAttribute="top" id="vbs-sg-r1Y"/>
                 <constraint firstItem="56" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="wfe-bn-iq4"/>
                 <constraint firstAttribute="trailing" secondItem="56" secondAttribute="trailing" id="wuI-WU-Uyb"/>
-                <constraint firstItem="54" firstAttribute="height" secondItem="ed4-pv-im9" secondAttribute="height" id="ytd-YO-Pbn"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>

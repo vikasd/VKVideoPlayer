@@ -121,6 +121,8 @@ VKVideoPlayerViewDelegate
 @property (nonatomic, assign) UIInterfaceOrientation visibleInterfaceOrientation;
 @property (nonatomic, assign) UIInterfaceOrientationMask supportedOrientations;
 @property (nonatomic, assign) BOOL isFullScreen;
+@property (nonatomic, assign) BOOL autoPlay;
+@property (nonatomic, assign) BOOL avNoteEnabled;
 
 @property (nonatomic, strong) id<VKVideoPlayerExternalMonitorProtocol> externalMonitor;
 

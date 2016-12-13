@@ -88,19 +88,23 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
     [self.bigPlayButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [self.bigPlayButton setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
     [self.bigPlayButton setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];
+    [self.bigPlayButton2 setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [self.bigPlayButton2 setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
+    [self.bigPlayButton2 setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];
     [self.addNoteButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [self.addNoteButton setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
     [self.addNoteButton setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];
     
     UIFont *roboFont = [UIFont fontWithName:@"Robo" size:[VKSharedUtility isPad] ? 80.0 : 50];
     self.bigPlayButton.titleLabel.font = roboFont;
+    self.bigPlayButton2.titleLabel.font = roboFont;
     self.addNoteButton.titleLabel.font = roboFont;
-    
+        
     self.scrubber.minimumTrackTintColor = controlColor;
     self.scrubber.maximumTrackTintColor = [UIColor lightGrayColor];
     self.scrubber.thumbTintColor = controlColor;
     
-    self.buttonHolderView.hidden = YES;
+    self.playButtonHolderView.hidden = self.buttonHolderView.hidden = YES;
     self.cuesArray = [NSMutableArray array];
 }
 
@@ -348,11 +352,13 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 - (void)setPlayButtonsSelected:(BOOL)selected {
     self.playButton.selected = selected;
     self.bigPlayButton.selected = selected;
+    self.bigPlayButton2.selected = selected;
 }
 
 - (void)setPlayButtonsEnabled:(BOOL)enabled {
     self.playButton.enabled = enabled;
     self.bigPlayButton.enabled = enabled;
+    self.bigPlayButton2.enabled = enabled;
 }
 
 - (void)setControlsEnabled:(BOOL)enabled {
@@ -445,24 +451,6 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 
 - (void)layoutForOrientation:(UIInterfaceOrientation)interfaceOrientation {
     if (UIInterfaceOrientationIsPortrait(interfaceOrientation)) {
-        
-        //    [self.bigPlayButton setFrameOriginY:CGRectGetMinY(self.bottomControlOverlay.frame)/2 - CGRectGetHeight(self.bigPlayButton.frame)/2];
-        //
-        //    for (UIView *control in self.portraitControls) {
-        //      control.hidden = self.isControlsHidden;
-        //    }
-        //    for (UIView *control in self.landscapeControls) {
-        //      control.hidden = YES;
-        //    }
-        //
-        //  } else {
-        //
-        //    for (UIView *control in self.portraitControls) {
-        //      control.hidden = YES;
-        //    }
-        //    for (UIView *control in self.landscapeControls) {
-        //      control.hidden = self.isControlsHidden;
-        //    }
     }
     
     [self layoutSliderForOrientation:interfaceOrientation];

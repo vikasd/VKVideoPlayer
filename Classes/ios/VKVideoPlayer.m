@@ -316,14 +316,16 @@ typedef enum {
         [self.view.scrubber setValue:([self.player currentItemDuration] > 0) ? lastWatchedTime / [self.player currentItemDuration] : 0.0f animated:NO];
         
         [self.player seekToTimeInSeconds:lastWatchedTime completionHandler:^(BOOL finished) {
-            if (finished) [self playContent];
-            [self.view setPlayButtonsEnabled:YES];
+            
+            if (finished && self.autoPlay){
+                [self playContent];
+            }
             
             if ([self.delegate respondsToSelector:@selector(videoPlayer:didStartVideo:)]) {
                 [self.delegate videoPlayer:self didStartVideo:self.track];
             }
+            [self.view setPlayButtonsEnabled:YES];
         }];
-        
     });
 }
 
@@ -812,7 +814,7 @@ typedef enum {
             case VKVideoPlayerStateContentPlaying:
                 break;
             case VKVideoPlayerStateContentPaused:
-                self.view.buttonOverlayView.hidden =  self.view.buttonHolderView.hidden = YES;
+                self.view.buttonOverlayView.hidden = self.view.buttonHolderView.hidden = self.view.playButtonHolderView.hidden = YES ;
                 break;
             case VKVideoPlayerStateDismissed:
                 break;
@@ -844,7 +846,14 @@ typedef enum {
                 [self.view setPlayButtonsSelected:YES];
                 self.view.playerLayerView.hidden = NO;
                 self.track.lastDurationWatchedInSeconds = [NSNumber numberWithFloat:[self currentTime]];
-                self.view.buttonOverlayView.hidden = self.view.buttonHolderView.hidden = NO;
+                self.view.buttonOverlayView.hidden = NO;
+                
+                if (self.avNoteEnabled) {
+                    self.view.buttonHolderView.hidden = NO;
+                } else {
+                    self.view.playButtonHolderView.hidden = NO;
+                }
+                
                 [self.player pause];
                 break;
             case VKVideoPlayerStateSuspend:

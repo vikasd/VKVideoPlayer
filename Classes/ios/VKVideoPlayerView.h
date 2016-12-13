@@ -62,6 +62,8 @@
 @property (weak, nonatomic) IBOutlet UIView *buttonHolderView;
 @property (nonatomic, strong) IBOutlet UIButton* bigPlayButton;
 @property (weak, nonatomic) IBOutlet UIButton *addNoteButton;
+@property (unsafe_unretained, nonatomic) IBOutlet UIView *playButtonHolderView;
+@property (unsafe_unretained, nonatomic) IBOutlet UIButton *bigPlayButton2;
 
 @property (weak, nonatomic) IBOutlet UILabel *watermarkLabel;
 @property (nonatomic, readonly) BOOL isControlsEnabled;
