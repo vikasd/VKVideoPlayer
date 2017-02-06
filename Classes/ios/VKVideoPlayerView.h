@@ -89,6 +89,7 @@
 - (IBAction)handleSwipeLeft:(id)sender;
 - (IBAction)handleSwipeRight:(id)sender;
 
+- (void)setMaximumTime:(NSNumber *)maxDuration;
 - (void)updateTimeLabels;
 - (void)setControlsHidden:(BOOL)hidden;
 - (void)setControlsEnabled:(BOOL)enabled;

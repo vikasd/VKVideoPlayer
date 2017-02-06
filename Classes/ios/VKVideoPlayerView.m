@@ -330,6 +330,10 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
     });
 }
 
+- (void)setMaximumTime:(NSNumber *)maxDuration {
+    self.totalTimeLabel.text =[VKSharedUtility timeStringFromSecondsValue:[maxDuration integerValue]];
+}
+
 - (void)updateTimeLabels {
     DDLogVerbose(@"Updating TimeLabels: %f", self.scrubber.value);
     
