@@ -48,7 +48,7 @@
 @property (nonatomic, strong) IBOutlet UIView* view;
 @property (nonatomic, strong) IBOutlet VKVideoPlayerLayerView* playerLayerView;
 @property (nonatomic, strong) IBOutlet UIView* controls;
-@property (nonatomic, strong) IBOutlet UIView* bottomControlOverlay;
+@property (nonatomic, strong) IBOutlet UIView* bottonControlOverlay;
 @property (weak, nonatomic) IBOutlet UIView *buttonOverlayView;
 @property (nonatomic, strong) IBOutlet UIActivityIndicatorView* activityIndicator;
 

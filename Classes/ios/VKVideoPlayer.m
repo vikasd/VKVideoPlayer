@@ -1207,7 +1207,7 @@ typedef enum {
     
     if ([self activePlayerView] == self.view) {
         if (captionView.tag == VKVideoPlayerCaptionPositionBottom && !self.view.isControlsHidden) {
-            padding = MAX(CGRectGetHeight(self.view.bottomControlOverlay.frame), padding);
+            padding = MAX(CGRectGetHeight(self.view.bottonControlOverlay.frame), padding);
         }
     }
     

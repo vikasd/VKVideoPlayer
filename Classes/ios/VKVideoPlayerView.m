@@ -76,7 +76,10 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
     self.backgroundColor = [VKVideoPlayerView colorFromHexString:VIDEO_BACKGROUND_COLOR];
     self.view.backgroundColor = [VKVideoPlayerView colorFromHexString:VIDEO_BACKGROUND_COLOR];
     self.buttonOverlayView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.5];
-    self.bottomControlOverlay.backgroundColor = [[VKVideoPlayerView colorFromHexString:VIDEO_BACKGROUND_COLOR] colorWithAlphaComponent:0.5];
+    self.bottonControlOverlay.backgroundColor = [[VKVideoPlayerView colorFromHexString:VIDEO_BACKGROUND_COLOR] colorWithAlphaComponent:0.5];
+    
+    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(blankTap:)];
+    [self.bottonControlOverlay addGestureRecognizer:tapGesture];
     
     UIColor *controlColor = [VKVideoPlayerView colorFromHexString:VIDEO_CONTROL_COLOR];
     [self.playButton setTitleColor:controlColor forState:UIControlStateNormal];
@@ -99,7 +102,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
     self.bigPlayButton.titleLabel.font = roboFont;
     self.bigPlayButton2.titleLabel.font = roboFont;
     self.addNoteButton.titleLabel.font = roboFont;
-        
+    
     self.scrubber.minimumTrackTintColor = controlColor;
     self.scrubber.maximumTrackTintColor = [UIColor lightGrayColor];
     self.scrubber.thumbTintColor = controlColor;
@@ -124,6 +127,10 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 - (void)layoutSubviews {
     [super layoutSubviews];
 }
+
+- (void)blankTap:(UITapGestureRecognizer *)tapGesture{
+}
+
 
 #pragma - VKVideoPlayerViewDelegates
 
