@@ -896,6 +896,11 @@ typedef enum {
     [self pauseContent:NO completionHandler:nil];
 }
 
+- (void)stopContent {
+    [self pauseContent];
+    self.track = nil;
+}
+
 - (void)pauseContentWithCompletionHandler:(void (^)())completionHandler {
     [self pauseContent:NO completionHandler:completionHandler];
 }

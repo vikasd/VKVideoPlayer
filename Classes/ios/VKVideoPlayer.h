@@ -158,6 +158,7 @@ VKVideoPlayerViewDelegate
 #pragma mark - Controls
 - (void)playContent;
 - (void)pauseContent;
+- (void)stopContent;
 - (void)pauseContentWithCompletionHandler:(void (^)())completionHandler;
 - (void)pauseContent:(BOOL)isUserAction completionHandler:(void (^)())completionHandler;
 - (void)updateTrackControls;
