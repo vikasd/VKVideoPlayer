@@ -87,6 +87,23 @@
   [self.player loadVideoWithTrack:[[VKVideoPlayerTrack alloc] initWithStreamURL:streamURL]];
 }
 
+- (void)playEncryptedVideo {
+    
+        NSURL *URL = [NSURL URLWithString:@"http://mtmedia.streaming.mediaservices.windows.net/309457b8-e5ca-427b-b977-0b2c5432d5b8/Module_08.ism/manifest(format=m3u8-aapl)"];
+    
+    VKVideoPlayerTrack *videoPlayerTrack = [[VKVideoPlayerTrack alloc] initWithStreamURL:URL
+                                                                           authorization:@{@"Authorization": @"Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1cm46bWljcm9zb2Z0OmF6dXJlOm1lZGlhc2VydmljZXM6Y29udGVudGtleWlkZW50aWZpZXIiOiI0MjFiZDJkZi1lNjg3LTRmNDAtYjc4NC1jZjQ0MTdmNTJlM2IiLCJpc3MiOiJodHRwOi8vdGVzdGFjcyIsImF1ZCI6InVybjp0ZXN0IiwiZXhwIjoxNDkzNTU4NDIzfQ.Zm5TkHGRTtyCJF9GYcP8fA5QSLcR4zftP531HkKY7mA"}];
+    
+    [self.player loadVideoWithTrack:videoPlayerTrack];
+}
+
+- (void)playBlankEncryptedVideo {
+    
+    NSURL *URL = [NSURL URLWithString:@"http://mtmedia.streaming.mediaservices.windows.net/04c37741-ecad-48f8-b481-013affe133af/nature.ism/manifest(format=m3u8-aapl)"];
+    VKVideoPlayerTrack *videoPlayerTrack = [[VKVideoPlayerTrack alloc] initWithStreamURL:URL];
+    [self.player loadVideoWithTrack:videoPlayerTrack];
+}
+
 - (void)setSubtitle:(VKVideoPlayerCaption*)subtitle {
   [self.player setCaptionToBottom:subtitle];
 }

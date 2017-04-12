@@ -18,6 +18,9 @@
 // video stream URL
 - (NSURL*)streamURL;
 
+// Decryption key
+- (NSDictionary *)authorization;
+
 - (BOOL)hasNext;
 - (BOOL)hasPrevious;
 @end
@@ -36,9 +39,11 @@
 @property (nonatomic, assign) BOOL hasPrevious;
 @property (nonatomic, assign) BOOL isPlayedToEnd;
 @property (nonatomic, strong) NSURL* streamURL;
+@property (nonatomic, strong) NSDictionary *authorization;
 @property (nonatomic, assign) BOOL isVideoLoadedBefore;
 @property (nonatomic, strong) NSNumber* totalVideoDuration;
 @property (nonatomic, strong) NSNumber* lastDurationWatchedInSeconds;
 
 - (id)initWithStreamURL:(NSURL*)url;
+- (id)initWithStreamURL:(NSURL *)url authorization:(NSDictionary *)authorization;
 @end

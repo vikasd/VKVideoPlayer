@@ -15,4 +15,13 @@
   return self;
 }
 
+- (id)initWithStreamURL:(NSURL *)url authorization:(NSDictionary *)authorization {
+    self = [super init];
+    if (self) {
+        self.streamURL = url;
+        self.authorization = authorization;
+    }
+    return self;
+}
+
 @end

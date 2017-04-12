@@ -428,7 +428,16 @@ typedef enum {
         track.isVideoLoadedBefore = YES;
     }
     
-    AVURLAsset* asset = [[AVURLAsset alloc] initWithURL:streamURL options:@{ AVURLAssetPreferPreciseDurationAndTimingKey : @YES }];
+    NSMutableDictionary *dictionary = [@{ AVURLAssetPreferPreciseDurationAndTimingKey : @YES } mutableCopy];
+    
+    NSDictionary *authorization = [track authorization];
+    
+    if (authorization && authorization.count > 0) {
+        [dictionary setValue:authorization forKey:@"AVURLAssetHTTPHeaderFieldsKey"];
+    }
+    
+    AVURLAsset* asset = [[AVURLAsset alloc] initWithURL:streamURL options:dictionary];
+    
     [asset loadValuesAsynchronouslyForKeys:@[kTracksKey, kPlayableKey] completionHandler:^{
         // Completion handler block.
         RUN_ON_UI_THREAD(^{

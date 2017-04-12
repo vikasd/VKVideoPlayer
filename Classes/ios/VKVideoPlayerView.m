@@ -400,14 +400,6 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
     [self.delegate playerViewSingleTapped];
 }
 
-- (IBAction)handleSwipeLeft:(id)sender {
-    [self.delegate nextTrackBySwipe];
-}
-
-- (IBAction)handleSwipeRight:(id)sender {
-    [self.delegate previousTrackBySwipe];
-}
-
 - (void)setControlHideCountdown:(NSInteger)controlHideCountdown {
     if (controlHideCountdown == 0) {
         [self setControlsHidden:YES];

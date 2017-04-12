@@ -13,4 +13,6 @@
 @property (nonatomic, strong) VKVideoPlayer* player;
 - (void)playVideoWithStreamURL:(NSURL*)streamURL;
 - (void)setSubtitle:(VKVideoPlayerCaption*)subtitle;
+- (void)playEncryptedVideo;
+- (void)playBlankEncryptedVideo;
 @end

@@ -86,8 +86,6 @@
 - (void)addCueToScrubber:(NSDictionary *)cue;
 
 - (IBAction)handleSingleTap:(id)sender;
-- (IBAction)handleSwipeLeft:(id)sender;
-- (IBAction)handleSwipeRight:(id)sender;
 
 - (void)setMaximumTime:(NSNumber *)maxDuration;
 - (void)updateTimeLabels;

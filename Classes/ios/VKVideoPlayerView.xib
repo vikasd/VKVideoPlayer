@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -247,22 +247,8 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outletCollection property="gestureRecognizers" destination="49" appends="YES" id="78"/>
-                <outletCollection property="gestureRecognizers" destination="rJu-g6-2JN" appends="YES" id="qgs-d1-IVP"/>
-                <outletCollection property="gestureRecognizers" destination="JnZ-7A-Kfb" appends="YES" id="zRV-VY-YKk"/>
             </connections>
             <point key="canvasLocation" x="230" y="397"/>
         </view>
-        <swipeGestureRecognizer direction="left" id="rJu-g6-2JN" userLabel="Swipe Left">
-            <connections>
-                <action selector="handleSwipeLeft:" destination="-1" id="2B6-3u-Ol8"/>
-                <outlet property="delegate" destination="-1" id="Apg-XP-lru"/>
-            </connections>
-        </swipeGestureRecognizer>
-        <swipeGestureRecognizer direction="right" id="JnZ-7A-Kfb" userLabel="Swipe Right">
-            <connections>
-                <action selector="handleSwipeRight:" destination="-1" id="3AV-Uc-Rje"/>
-                <outlet property="delegate" destination="-1" id="rBE-hv-VYG"/>
-            </connections>
-        </swipeGestureRecognizer>
     </objects>
 </document>
