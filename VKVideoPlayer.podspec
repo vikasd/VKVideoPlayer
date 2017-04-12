@@ -37,7 +37,7 @@ s.authors            = {
 
 s.platform     = :ios, "7.0"
 s.ios.deployment_target = '7.0'
-s.source       = { :git => "https://github.com/vikasd/VKVideoPlayer.git", :tag => "robo_4.5" }
+s.source       = { :git => "https://github.com/vikasd/VKVideoPlayer.git", :tag => "robo_5.0" }
 
 s.source_files = 'Classes/ios/*.{h,m}'
 
