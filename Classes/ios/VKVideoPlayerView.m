@@ -136,6 +136,8 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 
 - (void)loadCuesOnScrubber {
     
+    [self removeCuesFromScrubber];
+    
     for (int i = 0; i < _cuesArray.count; i++) {
         [self addCue:_cuesArray[i] atIndex:i];
     }
@@ -162,23 +164,9 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
     }];
     
     if (index != NSNotFound) {
-        
         [_cuesArray removeObjectAtIndex:index];
-        NSInteger subViewindex = [_scrubberHolderView.subviews indexOfObjectPassingTest:^BOOL(UIView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-            
-            if (obj.tag == (index +1)) {
-                *stop = YES;
-                return YES;
-            }
-            return NO;
-        }];
-        
-        if (subViewindex != NSNotFound) {
-            
-            UIView *view = _scrubberHolderView.subviews[subViewindex];
-            [view removeFromSuperview];
-        }
     }
+    [self loadCuesOnScrubber];
 }
 
 - (void)addCueToScrubber:(NSDictionary *)cue {
@@ -193,31 +181,9 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
     }];
     
     if (index == NSNotFound) {
-        
         [_cuesArray addObject:cue];
-        index = [_cuesArray indexOfObject:cue];
-        [self addCue:cue atIndex:index];
-    } else {
-        
-        [_cuesArray removeObjectAtIndex:index];
-        [_cuesArray insertObject:cue atIndex:index];
-        
-        NSInteger subViewindex = [_scrubberHolderView.subviews indexOfObjectPassingTest:^BOOL(UIView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-            
-            if (obj.tag == (index +1)) {
-                *stop = YES;
-                return YES;
-            }
-            return NO;
-        }];
-        
-        if (subViewindex != NSNotFound) {
-            
-            UIButton *button = _scrubberHolderView.subviews[subViewindex];
-            UIColor *color = [cue[@"important"] boolValue] ? [VKUtility colorWithHexString:@"#DA5C59"] : [VKUtility colorWithHexString:@"#F7ED82"];
-            [button setTitleColor:color forState:UIControlStateNormal];
-        }
     }
+    [self loadCuesOnScrubber];
 }
 
 - (void)addCue:(NSDictionary *)cue atIndex:(NSInteger)index {
@@ -276,6 +242,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
     // Pause video before opening VNote
     [self.delegate pauseButtonPressed];
     [self setPlayButtonsSelected:YES];
+    
     
     NSDictionary *cue = _cuesArray[button.tag-1];
     if ([VKSharedUtility isPad]) {
@@ -338,7 +305,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 }
 
 - (void)setMaximumTime:(NSNumber *)maxDuration {
-    self.totalTimeLabel.text =[VKSharedUtility timeStringFromSecondsValue:[maxDuration integerValue]];
+    self.totalTimeLabel.text =[VKSharedUtility timeStringFromSecondsValue:(int)[maxDuration integerValue]];
 }
 
 - (void)updateTimeLabels {
