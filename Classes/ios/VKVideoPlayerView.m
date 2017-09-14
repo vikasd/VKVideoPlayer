@@ -232,7 +232,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
     button.tag = index + 1; // 1 based index;
     button.frame = [VKSharedUtility isPad] ? CGRectMake(x-15, 0, 30, 50) : CGRectMake(x-10, 0, 20, 40);
     
-    button.titleLabel.font = [UIFont fontWithName:@"robo" size:[VKSharedUtility isPad] ? 40.0 : 28.0];
+    button.titleLabel.font = [UIFont fontWithName:@"robo" size:[VKSharedUtility isPad] ? 40.0 : 24.0];
     [button setTitle:@"Ë" forState:UIControlStateNormal];
     
     UIColor *color = [cue[@"important"] boolValue] ? [VKUtility colorWithHexString:@"#DA5C59"] : [VKUtility colorWithHexString:@"#F7ED82"];

@@ -34,7 +34,7 @@ typedef enum {
     VKVideoPlayerCaptionPositionBottom
 } VKVideoPlayerCaptionPosition;
 
-@interface VKVideoPlayer()
+@interface VKVideoPlayer() <AVAssetResourceLoaderDelegate>
 @property (nonatomic, assign) BOOL scrubbing;
 @property (nonatomic, assign) NSTimeInterval beforeSeek;
 @property (nonatomic, assign) NSTimeInterval previousPlaybackTime;
@@ -208,7 +208,7 @@ typedef enum {
     //  [defaultCenter addObserver:self selector:@selector(applicationDidBecomeActive) name:UIApplicationDidBecomeActiveNotification object:nil];
     [defaultCenter addObserver:self selector:@selector(volumeChanged:) name:@"AVSystemController_SystemVolumeDidChangeNotification" object:nil];
     
-//    [defaultCenter addObserver:self selector:@selector(reachabilityChanged:) name:kReachabilityChangedNotification object:nil];
+    //    [defaultCenter addObserver:self selector:@selector(reachabilityChanged:) name:kReachabilityChangedNotification object:nil];
     [defaultCenter addObserver:self selector:@selector(playerItemReadyToPlay) name:kVKVideoPlayerItemReadyToPlay object:nil];
     [defaultCenter addObserver:self selector:@selector(orientationChanged:) name:UIDeviceOrientationDidChangeNotification object:[UIDevice currentDevice]];
     
@@ -437,6 +437,7 @@ typedef enum {
     }
     
     AVURLAsset* asset = [[AVURLAsset alloc] initWithURL:streamURL options:dictionary];
+    [asset.resourceLoader setDelegate:self queue:dispatch_get_main_queue()];
     
     [asset loadValuesAsynchronouslyForKeys:@[kTracksKey, kPlayableKey] completionHandler:^{
         // Completion handler block.
@@ -449,8 +450,15 @@ typedef enum {
             NSError *error = nil;
             AVKeyValueStatus status = [asset statusOfValueForKey:kTracksKey error:&error];
             if (status == AVKeyValueStatusLoaded) {
+                
                 self.playerItem = [AVPlayerItem playerItemWithAsset:asset];
-                self.avPlayer = [self playerWithPlayerItem:self.playerItem];
+                
+                if (!self.avPlayer) {
+                    self.avPlayer = [[AVPlayer alloc] init];
+                }
+                
+                [self.avPlayer replaceCurrentItemWithPlayerItem:self.playerItem];
+                //                self.avPlayer = [self playerWithPlayerItem:self.playerItem];
                 self.player = (id<VKPlayer>)self.avPlayer;
                 [playerLayerView setPlayer:self.avPlayer];
                 
@@ -468,6 +476,7 @@ typedef enum {
     DDLogVerbose(@"Player: playerItemReadyToPlay");
     
     RUN_ON_UI_THREAD(^{
+        
         switch (self.state) {
             case VKVideoPlayerStateContentPaused:
                 break;
@@ -477,6 +486,11 @@ typedef enum {
                     if ([self.delegate respondsToSelector:@selector(videoPlayer:willStartVideo:)]) {
                         [self.delegate videoPlayer:self willStartVideo:self.track];
                     }
+                    
+                    // To play content once player is set
+                    self.view.playButton.selected = YES;
+                    [self.view playButtonTapped:self.view.playButton];
+                    
                     [self seekToLastWatchedDuration];
                 }];
                 break;
@@ -511,9 +525,11 @@ typedef enum {
     self.captionBottomTimer = nil;
     [_avPlayer removeObserver:self forKeyPath:@"status"];
     _avPlayer = avPlayer;
-    if (avPlayer) {
+    
+    if (_avPlayer) {
         __weak __typeof(self) weakSelf = self;
-        [avPlayer addObserver:self forKeyPath:@"status" options:0 context:nil];
+        [_avPlayer addObserver:self forKeyPath:@"status" options:0 context:nil];
+        
         [self.view setMaximumTime:[NSNumber numberWithDouble:CMTimeGetSeconds(avPlayer.currentItem.asset.duration)]];
         self.timeObserver = [avPlayer addPeriodicTimeObserverForInterval:CMTimeMake(1, 1) queue:NULL usingBlock:^(CMTime time){
             [weakSelf periodicTimeObserver:time];
@@ -620,6 +636,10 @@ typedef enum {
     _moveRight = _moveBottom = YES;
     _moveLeft = !_moveRight;
     _moveTop = !_moveBottom;
+    
+    if (_animationTimer) {
+        [self stopWatermarkAnimation];
+    }
     
     _animationTimer = [NSTimer timerWithTimeInterval:0.5
                                               target:self
@@ -906,6 +926,7 @@ typedef enum {
 }
 
 - (void)stopContent {
+    [self stopWatermarkAnimation];
     [self pauseContent];
     self.track = nil;
 }
@@ -1376,6 +1397,27 @@ typedef enum {
             return 180;
             break;
     }
+}
+
+
+- (BOOL)resourceLoader:(AVAssetResourceLoader *)resourceLoader shouldWaitForLoadingOfRequestedResource:(AVAssetResourceLoadingRequest *)loadingRequest {
+    
+    NSString *scheme = loadingRequest.request.URL.scheme;
+    
+    if ([scheme isEqualToString:@"ckey"]) {
+        
+        NSString *request = loadingRequest.request.URL.host;
+        NSData *data = [[NSUserDefaults standardUserDefaults] objectForKey:request];
+        
+        if (data) {
+            [loadingRequest.dataRequest respondWithData:data];
+            [loadingRequest finishLoading];
+        } else {
+            // Data loading fail
+        }
+    }
+    
+    return NO;
 }
 
 @end
