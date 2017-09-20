@@ -1410,6 +1410,9 @@ typedef enum {
         NSData *data = [[NSUserDefaults standardUserDefaults] objectForKey:request];
         
         if (data) {
+            loadingRequest.contentInformationRequest.contentType = AVStreamingKeyDeliveryPersistentContentKeyType;
+            loadingRequest.contentInformationRequest.byteRangeAccessSupported = YES;
+            loadingRequest.contentInformationRequest.contentLength = data.length;
             [loadingRequest.dataRequest respondWithData:data];
             [loadingRequest finishLoading];
         } else {
@@ -1417,7 +1420,7 @@ typedef enum {
         }
     }
     
-    return NO;
+    return YES;
 }
 
 @end
