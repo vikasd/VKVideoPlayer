@@ -44,6 +44,7 @@ typedef enum {
 @property (nonatomic, assign) BOOL moveLeft;
 @property (nonatomic, assign) BOOL moveTop;
 
+@property (nonatomic, assign) float playbackRate;
 @property (nonatomic, assign) double previousIndicatedBandwidth;
 
 @property (nonatomic, strong) id timeObserver;
@@ -105,6 +106,7 @@ typedef enum {
     self.state = VKVideoPlayerStateUnknown;
     self.scrubbing = NO;
     self.beforeSeek = 0.0;
+    self.playbackRate = 1.0;
     self.previousPlaybackTime = 0;
     //  self.supportedOrientations = [[UIApplication sharedApplication] supportedInterfaceOrientationsForWindow:[[UIApplication sharedApplication] keyWindow]];
     self.supportedOrientations = VKSharedUtility.isPad ? UIInterfaceOrientationMaskAll : UIInterfaceOrientationMaskAllButUpsideDown;
@@ -869,6 +871,7 @@ typedef enum {
                 self.playerControlsEnabled = YES;
                 [self.view setPlayButtonsSelected:NO];
                 self.view.playerLayerView.hidden = NO;
+//                self.view.buttonOverlayView.hidden = YES;
                 [self.player play];
             } break;
             case VKVideoPlayerStateContentPaused:
@@ -918,6 +921,7 @@ typedef enum {
         if (self.state == VKVideoPlayerStateContentPaused) {
             self.state = VKVideoPlayerStateContentPlaying;
         }
+        self.avPlayer.rate = self.playbackRate;
     });
 }
 
@@ -1132,6 +1136,11 @@ typedef enum {
     if ([self.delegate respondsToSelector:@selector(videoPlayer:didControlByEvent:)]) {
         [self.delegate videoPlayer:self didControlByEvent:VKVideoPlayerControlEventTapDone];
     }
+}
+
+- (void)playbackRateChanged:(float)rate {
+    self.playbackRate = rate;
+    [self playContent];
 }
 
 - (void)layoutNavigationAndStatusBarForOrientation:(UIInterfaceOrientation)interfaceOrientation {

@@ -1,14 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <array key="Helvetica.ttc">
+            <string>Helvetica</string>
+        </array>
+        <array key="HelveticaNeue.ttc">
+            <string>HelveticaNeue</string>
+        </array>
         <array key="Robo_VKVideoPlayer.ttf">
             <string>Robo</string>
         </array>
@@ -28,6 +34,10 @@
                 <outlet property="fullscreenButton" destination="5Qd-b3-byZ" id="F4o-y1-pUP"/>
                 <outlet property="playButton" destination="17" id="25"/>
                 <outlet property="playButtonHolderView" destination="JST-MU-rFB" id="V4f-8Q-ODq"/>
+                <outlet property="playbackRateButtonHolderView" destination="SPW-72-gUo" id="hhu-Tt-yMV"/>
+                <outlet property="playbackRate_1_0" destination="1kw-GZ-Mpg" id="3M6-L1-XLj"/>
+                <outlet property="playbackRate_1_25" destination="nMW-vK-0VA" id="K3d-Ch-FOr"/>
+                <outlet property="playbackRate_1_50" destination="iyB-LY-mR5" id="ngl-xu-2M8"/>
                 <outlet property="playerLayerView" destination="56" id="58"/>
                 <outlet property="scrubber" destination="18" id="26"/>
                 <outlet property="scrubberHolderView" destination="32z-fk-Zew" id="k8r-ny-9BD"/>
@@ -150,19 +160,21 @@
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JST-MU-rFB">
-                            <rect key="frame" x="275" y="269" width="50" height="62"/>
+                            <rect key="frame" x="276" y="220" width="48" height="60"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v0X-C0-fL0">
-                                    <rect key="frame" x="0.0" y="0.0" width="50" height="62"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="48" height="60"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                    <fontDescription key="fontDescription" name="Robo" family="Robo" pointSize="50"/>
-                                    <state key="normal" title="Q"/>
+                                    <fontDescription key="fontDescription" name="Robo" family="Robo" pointSize="48"/>
+                                    <state key="normal" title="Q">
+                                        <color key="titleColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </state>
                                     <connections>
                                         <action selector="playButtonTapped:" destination="-1" eventType="touchUpInside" id="30A-3F-Fcz"/>
                                     </connections>
                                 </button>
                             </subviews>
-                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstItem="v0X-C0-fL0" firstAttribute="leading" secondItem="JST-MU-rFB" secondAttribute="leading" id="2hH-CT-o6z"/>
                                 <constraint firstItem="v0X-C0-fL0" firstAttribute="top" secondItem="JST-MU-rFB" secondAttribute="top" id="2iO-qJ-X8X"/>
@@ -171,13 +183,15 @@
                             </constraints>
                         </view>
                         <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dt4-Ds-xZD">
-                            <rect key="frame" x="247.5" y="269" width="105" height="62"/>
+                            <rect key="frame" x="247.5" y="219" width="105" height="62"/>
                             <subviews>
                                 <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="169-ch-vv0">
                                     <rect key="frame" x="0.0" y="0.0" width="50" height="62"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <fontDescription key="fontDescription" name="Robo" family="Robo" pointSize="50"/>
-                                    <state key="normal" title="Q"/>
+                                    <state key="normal" title="Q">
+                                        <color key="titleColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </state>
                                     <connections>
                                         <action selector="playButtonTapped:" destination="-1" eventType="touchUpInside" id="wHK-Ly-fNf"/>
                                     </connections>
@@ -187,7 +201,7 @@
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <fontDescription key="fontDescription" name="Robo" family="Robo" pointSize="50"/>
                                     <state key="normal" title="X">
-                                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="titleColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </state>
                                     <connections>
@@ -205,17 +219,73 @@
                                 <constraint firstItem="ed4-pv-im9" firstAttribute="leading" secondItem="169-ch-vv0" secondAttribute="trailing" constant="5" id="oxP-P0-DWf"/>
                             </constraints>
                         </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SPW-72-gUo">
+                            <rect key="frame" x="197" y="474" width="206" height="46"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1kw-GZ-Mpg">
+                                    <rect key="frame" x="8" y="8" width="50" height="30"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="50" id="7Sq-Vy-shZ"/>
+                                        <constraint firstAttribute="height" constant="30" id="ppu-sl-02s"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                    <state key="normal" title="1.0x">
+                                        <color key="titleColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="playbackRateChangeButtonTapped:" destination="-1" eventType="touchUpInside" id="gjg-q9-uYP"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nMW-vK-0VA">
+                                    <rect key="frame" x="78" y="8" width="50" height="30"/>
+                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                    <state key="normal" title="1.25x">
+                                        <color key="titleColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="playbackRateChangeButtonTapped:" destination="-1" eventType="touchUpInside" id="fXl-Qu-ZbI"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iyB-LY-mR5">
+                                    <rect key="frame" x="148" y="8" width="50" height="30"/>
+                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                    <state key="normal" title="1.50x">
+                                        <color key="titleColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="playbackRateChangeButtonTapped:" destination="-1" eventType="touchUpInside" id="EOf-d8-3Gc"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstItem="iyB-LY-mR5" firstAttribute="centerY" secondItem="nMW-vK-0VA" secondAttribute="centerY" id="4BB-pM-iHu"/>
+                                <constraint firstAttribute="trailing" secondItem="iyB-LY-mR5" secondAttribute="trailing" constant="8" id="4Ui-mb-6rA"/>
+                                <constraint firstItem="1kw-GZ-Mpg" firstAttribute="top" secondItem="SPW-72-gUo" secondAttribute="top" constant="8" id="7vR-T8-Av5"/>
+                                <constraint firstItem="nMW-vK-0VA" firstAttribute="centerY" secondItem="1kw-GZ-Mpg" secondAttribute="centerY" id="8cX-D0-SND"/>
+                                <constraint firstItem="nMW-vK-0VA" firstAttribute="height" secondItem="1kw-GZ-Mpg" secondAttribute="height" id="BR9-h9-3C5"/>
+                                <constraint firstItem="iyB-LY-mR5" firstAttribute="leading" secondItem="nMW-vK-0VA" secondAttribute="trailing" constant="20" id="K0x-Ne-Hjv"/>
+                                <constraint firstItem="1kw-GZ-Mpg" firstAttribute="leading" secondItem="SPW-72-gUo" secondAttribute="leading" constant="8" id="Qbp-DY-9tT"/>
+                                <constraint firstItem="iyB-LY-mR5" firstAttribute="width" secondItem="nMW-vK-0VA" secondAttribute="width" id="XBQ-pj-7gH"/>
+                                <constraint firstItem="nMW-vK-0VA" firstAttribute="leading" secondItem="1kw-GZ-Mpg" secondAttribute="trailing" constant="20" id="XYi-b9-LUf"/>
+                                <constraint firstAttribute="bottom" secondItem="1kw-GZ-Mpg" secondAttribute="bottom" constant="8" id="cpH-qQ-uxR"/>
+                                <constraint firstItem="iyB-LY-mR5" firstAttribute="height" secondItem="nMW-vK-0VA" secondAttribute="height" id="sqs-bF-fs8"/>
+                                <constraint firstItem="nMW-vK-0VA" firstAttribute="width" secondItem="1kw-GZ-Mpg" secondAttribute="width" id="vbk-vo-USR"/>
+                            </constraints>
+                        </view>
                     </subviews>
                     <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                     <gestureRecognizers/>
                     <constraints>
-                        <constraint firstItem="JST-MU-rFB" firstAttribute="centerY" secondItem="31" secondAttribute="centerY" id="25H-JC-LQF"/>
-                        <constraint firstItem="dt4-Ds-xZD" firstAttribute="centerY" secondItem="31" secondAttribute="centerY" id="2X7-Eq-V7e"/>
+                        <constraint firstItem="JST-MU-rFB" firstAttribute="centerY" secondItem="31" secondAttribute="centerY" constant="-50" id="25H-JC-LQF"/>
                         <constraint firstItem="JST-MU-rFB" firstAttribute="centerX" secondItem="31" secondAttribute="centerX" id="CBI-Rc-u9n"/>
+                        <constraint firstItem="dt4-Ds-xZD" firstAttribute="centerY" secondItem="JST-MU-rFB" secondAttribute="centerY" id="ErZ-Xa-lCx"/>
+                        <constraint firstItem="SPW-72-gUo" firstAttribute="centerX" secondItem="JST-MU-rFB" secondAttribute="centerX" id="JPy-So-Dba"/>
+                        <constraint firstItem="dt4-Ds-xZD" firstAttribute="centerX" secondItem="JST-MU-rFB" secondAttribute="centerX" id="O1l-4b-Kva"/>
                         <constraint firstAttribute="trailing" secondItem="3" secondAttribute="trailing" id="RkQ-vU-gtR"/>
                         <constraint firstAttribute="bottom" secondItem="3" secondAttribute="bottom" id="fIs-HJ-jeZ"/>
                         <constraint firstItem="3" firstAttribute="leading" secondItem="31" secondAttribute="leading" id="mcs-fv-EsC"/>
-                        <constraint firstItem="dt4-Ds-xZD" firstAttribute="centerX" secondItem="31" secondAttribute="centerX" id="qnj-as-xa0"/>
+                        <constraint firstItem="3" firstAttribute="top" secondItem="SPW-72-gUo" secondAttribute="bottom" constant="20" id="t75-0f-CpU"/>
                     </constraints>
                 </view>
                 <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="54">

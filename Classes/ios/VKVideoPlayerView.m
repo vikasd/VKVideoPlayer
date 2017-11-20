@@ -21,7 +21,6 @@
 #define VIDEO_NOTE_SELECTED_COLOR                   @"#da5a56"
 
 
-
 #ifdef DEBUG
 static const int ddLogLevel = LOG_LEVEL_WARN;
 #else
@@ -76,10 +75,16 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
     self.backgroundColor = [VKVideoPlayerView colorFromHexString:VIDEO_BACKGROUND_COLOR];
     self.view.backgroundColor = [VKVideoPlayerView colorFromHexString:VIDEO_BACKGROUND_COLOR];
     self.buttonOverlayView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.5];
-    self.bottonControlOverlay.backgroundColor = [[VKVideoPlayerView colorFromHexString:VIDEO_BACKGROUND_COLOR] colorWithAlphaComponent:0.5];
+    
+    self.playbackRateButtonHolderView.backgroundColor = self.bottonControlOverlay.backgroundColor = [[VKVideoPlayerView colorFromHexString:VIDEO_BACKGROUND_COLOR] colorWithAlphaComponent:0.5];
+    
+    self.playbackRateButtonHolderView.layer.cornerRadius = 8.0;
     
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(blankTap:)];
     [self.bottonControlOverlay addGestureRecognizer:tapGesture];
+    
+    UITapGestureRecognizer *blankTapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(blankTap:)];
+    [self.playbackRateButtonHolderView addGestureRecognizer:blankTapGesture];
     
     UIColor *controlColor = [VKVideoPlayerView colorFromHexString:VIDEO_CONTROL_COLOR];
     [self.playButton setTitleColor:controlColor forState:UIControlStateNormal];
@@ -88,15 +93,44 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
     [self.fullscreenButton setTitleColor:controlColor forState:UIControlStateNormal];
     [self.fullscreenButton setTitleColor:controlColor forState:UIControlStateHighlighted];
     [self.fullscreenButton setTitleColor:controlColor forState:UIControlStateSelected];
-    [self.bigPlayButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [self.bigPlayButton setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
-    [self.bigPlayButton setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];
-    [self.bigPlayButton2 setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [self.bigPlayButton2 setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
-    [self.bigPlayButton2 setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];
-    [self.addNoteButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [self.addNoteButton setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
-    [self.addNoteButton setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];
+    [self.bigPlayButton setTitleColor:controlColor forState:UIControlStateNormal];
+    [self.bigPlayButton setTitleColor:controlColor forState:UIControlStateHighlighted];
+    [self.bigPlayButton setTitleColor:controlColor forState:UIControlStateSelected];
+    [self.bigPlayButton2 setTitleColor:controlColor forState:UIControlStateNormal];
+    [self.bigPlayButton2 setTitleColor:controlColor forState:UIControlStateHighlighted];
+    [self.bigPlayButton2 setTitleColor:controlColor forState:UIControlStateSelected];
+    [self.addNoteButton setTitleColor:controlColor forState:UIControlStateNormal];
+    [self.addNoteButton setTitleColor:controlColor forState:UIControlStateHighlighted];
+    [self.addNoteButton setTitleColor:controlColor forState:UIControlStateSelected];
+    
+    [self.playbackRate_1_0 setTitleColor:controlColor forState:UIControlStateNormal];
+    [self.playbackRate_1_0 setTitleColor:controlColor forState:UIControlStateHighlighted];
+    [self.playbackRate_1_0 setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];
+    
+    [self.playbackRate_1_25 setTitleColor:controlColor forState:UIControlStateNormal];
+    [self.playbackRate_1_25 setTitleColor:controlColor forState:UIControlStateHighlighted];
+    [self.playbackRate_1_25 setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];
+    
+    [self.playbackRate_1_50 setTitleColor:controlColor forState:UIControlStateNormal];
+    [self.playbackRate_1_50 setTitleColor:controlColor forState:UIControlStateHighlighted];
+    [self.playbackRate_1_50 setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];
+    
+    self.playbackRate_1_0.layer.borderColor = controlColor.CGColor;
+    self.playbackRate_1_0.layer.borderWidth = 1.0;
+    self.playbackRate_1_0.layer.cornerRadius = 8.0;
+    
+    self.playbackRate_1_25.layer.borderColor = controlColor.CGColor;
+    self.playbackRate_1_25.layer.borderWidth = 1.0;
+    self.playbackRate_1_25.layer.cornerRadius = 8.0;
+    
+    self.playbackRate_1_50.layer.borderColor = controlColor.CGColor;
+    self.playbackRate_1_50.layer.borderWidth = 1.0;
+    self.playbackRate_1_50.layer.cornerRadius = 8.0;
+    
+    // Default selected playback rate button
+    self.playbackRate_1_0.selected = YES;
+    self.playbackRate_1_0.backgroundColor = controlColor;
+    
     
     UIFont *roboFont = [UIFont fontWithName:@"Robo" size:[VKSharedUtility isPad] ? 80.0 : 50];
     self.bigPlayButton.titleLabel.font = roboFont;
@@ -235,6 +269,29 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
         }
         [self.delegate noteButtonTapped];
     }
+}
+
+- (IBAction)playbackRateChangeButtonTapped:(UIButton *)sender {
+
+    if (sender.selected) {
+        return;
+    }
+    
+    _playbackRate_1_0.selected = NO;
+    _playbackRate_1_25.selected = NO;
+    _playbackRate_1_50.selected = NO;
+    
+    _playbackRate_1_0.backgroundColor = UIColor.clearColor;
+    _playbackRate_1_25.backgroundColor = UIColor.clearColor;
+    _playbackRate_1_50.backgroundColor = UIColor.clearColor;
+    
+    UIColor *controlColor = [VKVideoPlayerView colorFromHexString:VIDEO_CONTROL_COLOR];
+    sender.selected = YES;
+    sender.backgroundColor = controlColor;
+    
+    float rate = (sender == _playbackRate_1_25) ? 1.25 : (sender == _playbackRate_1_50) ? 1.50 : 1.0;
+    
+    [self.delegate playbackRateChanged:rate];
 }
 
 - (void)noteCueTapped:(UIButton *)button {

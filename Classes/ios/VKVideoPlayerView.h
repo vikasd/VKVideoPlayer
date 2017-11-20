@@ -22,6 +22,7 @@
 - (void)fullScreenButtonTapped;
 - (void)playButtonPressed;
 - (void)pauseButtonPressed;
+- (void)playbackRateChanged:(float)rate;
 - (void)noteButtonTapped;
 - (void)noteSelected:(NSString *)noteId;
 
@@ -65,6 +66,11 @@
 @property (unsafe_unretained, nonatomic) IBOutlet UIView *playButtonHolderView;
 @property (unsafe_unretained, nonatomic) IBOutlet UIButton *bigPlayButton2;
 
+@property (weak, nonatomic) IBOutlet UIView *playbackRateButtonHolderView;
+@property (weak, nonatomic) IBOutlet UIButton *playbackRate_1_0;
+@property (weak, nonatomic) IBOutlet UIButton *playbackRate_1_25;
+@property (weak, nonatomic) IBOutlet UIButton *playbackRate_1_50;
+
 @property (weak, nonatomic) IBOutlet UILabel *watermarkLabel;
 @property (nonatomic, readonly) BOOL isControlsEnabled;
 @property (nonatomic, readonly) BOOL isControlsHidden;
@@ -79,6 +85,7 @@
 - (IBAction)fullscreenButtonTapped:(id)sender;
 - (IBAction)playButtonTapped:(id)sender;
 - (IBAction)addNoteButtonTapped:(UIButton *)sender;
+- (IBAction)playbackRateChangeButtonTapped:(UIButton *)sender;
 
 - (void)loadCuesOnScrubber;
 - (void)removeCuesFromScrubber;
