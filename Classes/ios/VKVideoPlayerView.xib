@@ -38,10 +38,13 @@
                 <outlet property="playbackRate_1_0" destination="1kw-GZ-Mpg" id="3M6-L1-XLj"/>
                 <outlet property="playbackRate_1_25" destination="nMW-vK-0VA" id="K3d-Ch-FOr"/>
                 <outlet property="playbackRate_1_50" destination="iyB-LY-mR5" id="ngl-xu-2M8"/>
+                <outlet property="playback_1_0_heightConstraint" destination="ppu-sl-02s" id="KAl-Cw-guV"/>
+                <outlet property="playback_1_0_widthConstraint" destination="7Sq-Vy-shZ" id="qOv-dZ-0Dp"/>
                 <outlet property="playerLayerView" destination="56" id="58"/>
                 <outlet property="scrubber" destination="18" id="26"/>
                 <outlet property="scrubberHolderView" destination="32z-fk-Zew" id="k8r-ny-9BD"/>
                 <outlet property="totalTimeLabel" destination="19" id="82"/>
+                <outlet property="verticalSpaceBetweenPlaybackHolderViewAndButtonControlHolderViewConstraint" destination="t75-0f-CpU" id="rmU-8J-yC2"/>
                 <outlet property="view" destination="1" id="22"/>
                 <outlet property="watermarkLabel" destination="WtY-bg-VEo" id="kA7-mW-Za0"/>
             </connections>

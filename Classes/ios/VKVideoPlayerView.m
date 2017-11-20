@@ -31,6 +31,9 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 @property (nonatomic, strong) NSMutableArray* customControls;
 @property (nonatomic, strong) NSMutableArray* portraitControls;
 @property (nonatomic, strong) NSMutableArray* landscapeControls;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *playback_1_0_widthConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *playback_1_0_heightConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *verticalSpaceBetweenPlaybackHolderViewAndButtonControlHolderViewConstraint;
 
 @property (nonatomic, assign) BOOL isControlsEnabled;
 @property (nonatomic, assign) BOOL isControlsHidden;
@@ -132,10 +135,30 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
     self.playbackRate_1_0.backgroundColor = controlColor;
     
     
-    UIFont *roboFont = [UIFont fontWithName:@"Robo" size:[VKSharedUtility isPad] ? 80.0 : 50];
+    BOOL isIPAD = [VKSharedUtility isPad];
+    
+    UIFont *roboFont = [UIFont fontWithName:@"Robo" size: isIPAD ? 60.0 : 50.0];
     self.bigPlayButton.titleLabel.font = roboFont;
     self.bigPlayButton2.titleLabel.font = roboFont;
     self.addNoteButton.titleLabel.font = roboFont;
+    
+    if (isIPAD) {
+        
+        _playback_1_0_widthConstraint.constant = 50.0;
+        _playback_1_0_heightConstraint.constant = 30.0;
+        _verticalSpaceBetweenPlaybackHolderViewAndButtonControlHolderViewConstraint.constant = 20.0;
+        
+        UIFont *font = [UIFont fontWithName:@"HelveticaNeue" size:14.0];
+        self.playbackRate_1_0.titleLabel.font = self.playbackRate_1_25.titleLabel.font = self.playbackRate_1_50.titleLabel.font = font;
+        
+    } else {
+        _playback_1_0_widthConstraint.constant = 40.0;
+        _playback_1_0_heightConstraint.constant = 25.0;
+        _verticalSpaceBetweenPlaybackHolderViewAndButtonControlHolderViewConstraint.constant = 10.0;
+        
+        UIFont *font = [UIFont fontWithName:@"HelveticaNeue" size:12.0];
+        self.playbackRate_1_0.titleLabel.font = self.playbackRate_1_25.titleLabel.font = self.playbackRate_1_50.titleLabel.font = font;
+    }
     
     self.scrubber.minimumTrackTintColor = controlColor;
     self.scrubber.maximumTrackTintColor = [UIColor lightGrayColor];
