@@ -14,13 +14,6 @@
 #import "UIImage+VKFoundation.h"
 #import "VKVideoPlayerSettingsManager.h"
 
-#define VIDEO_BACKGROUND_COLOR                      @"#181818"
-#define SEEK_BAR_BACKGROUND_COLOR                   @"#000000"
-#define VIDEO_CONTROL_COLOR                         @"#e9b81f"
-#define VIDEO_NOTE_NORMAL_COLOR                     @"#e9b81f"
-#define VIDEO_NOTE_SELECTED_COLOR                   @"#da5a56"
-
-
 #ifdef DEBUG
 static const int ddLogLevel = LOG_LEVEL_WARN;
 #else
@@ -34,6 +27,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *playback_1_0_widthConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *playback_1_0_heightConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *verticalSpaceBetweenPlaybackHolderViewAndButtonControlHolderViewConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *horizontalSpaceBetweenPlayButtonAndNoteButtonConstraint;
 
 @property (nonatomic, assign) BOOL isControlsEnabled;
 @property (nonatomic, assign) BOOL isControlsHidden;
@@ -147,14 +141,17 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
         _playback_1_0_widthConstraint.constant = 50.0;
         _playback_1_0_heightConstraint.constant = 30.0;
         _verticalSpaceBetweenPlaybackHolderViewAndButtonControlHolderViewConstraint.constant = 20.0;
+        _horizontalSpaceBetweenPlayButtonAndNoteButtonConstraint.constant = 50.0;
         
         UIFont *font = [UIFont fontWithName:@"HelveticaNeue" size:14.0];
         self.playbackRate_1_0.titleLabel.font = self.playbackRate_1_25.titleLabel.font = self.playbackRate_1_50.titleLabel.font = font;
         
     } else {
+        
         _playback_1_0_widthConstraint.constant = 40.0;
         _playback_1_0_heightConstraint.constant = 25.0;
         _verticalSpaceBetweenPlaybackHolderViewAndButtonControlHolderViewConstraint.constant = 10.0;
+        _horizontalSpaceBetweenPlayButtonAndNoteButtonConstraint.constant = 20.0;
         
         UIFont *font = [UIFont fontWithName:@"HelveticaNeue" size:12.0];
         self.playbackRate_1_0.titleLabel.font = self.playbackRate_1_25.titleLabel.font = self.playbackRate_1_50.titleLabel.font = font;
@@ -530,7 +527,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
     [self.portraitControls removeObject:view];
 }
 
-+ (UIColor *)colorFromHexString:(NSString *)hexCode{
++ (UIColor *)colorFromHexString:(NSString *)hexCode {
     
     unsigned rgbValue = 0;
     NSScanner *scanner = [NSScanner scannerWithString:hexCode];

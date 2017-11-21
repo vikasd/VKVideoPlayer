@@ -871,8 +871,8 @@ typedef enum {
                 self.playerControlsEnabled = YES;
                 [self.view setPlayButtonsSelected:NO];
                 self.view.playerLayerView.hidden = NO;
-//                self.view.buttonOverlayView.hidden = YES;
                 [self.player play];
+                self.view.playbackRateButtonHolderView.backgroundColor = [[VKVideoPlayerView colorFromHexString:VIDEO_BACKGROUND_COLOR] colorWithAlphaComponent:0.5];
             } break;
             case VKVideoPlayerStateContentPaused:
                 self.playerControlsEnabled = YES;
@@ -880,7 +880,7 @@ typedef enum {
                 self.view.playerLayerView.hidden = NO;
                 self.track.lastDurationWatchedInSeconds = [NSNumber numberWithFloat:[self currentTime]];
                 self.view.buttonOverlayView.hidden = NO;
-                
+                self.view.playbackRateButtonHolderView.backgroundColor = [UIColor clearColor];
                 if (self.avNoteEnabled) {
                     self.view.buttonHolderView.hidden = NO;
                 } else {

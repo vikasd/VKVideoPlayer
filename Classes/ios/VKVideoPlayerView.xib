@@ -32,6 +32,7 @@
                 <outlet property="controls" destination="31" id="34"/>
                 <outlet property="currentTimeLabel" destination="83" id="85"/>
                 <outlet property="fullscreenButton" destination="5Qd-b3-byZ" id="F4o-y1-pUP"/>
+                <outlet property="horizontalSpaceBetweenPlayButtonAndNoteButtonConstraint" destination="oxP-P0-DWf" id="IaA-u2-JAj"/>
                 <outlet property="playButton" destination="17" id="25"/>
                 <outlet property="playButtonHolderView" destination="JST-MU-rFB" id="V4f-8Q-ODq"/>
                 <outlet property="playbackRateButtonHolderView" destination="SPW-72-gUo" id="hhu-Tt-yMV"/>
@@ -186,7 +187,7 @@
                             </constraints>
                         </view>
                         <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dt4-Ds-xZD">
-                            <rect key="frame" x="247.5" y="219" width="105" height="62"/>
+                            <rect key="frame" x="225" y="219" width="150" height="62"/>
                             <subviews>
                                 <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="169-ch-vv0">
                                     <rect key="frame" x="0.0" y="0.0" width="50" height="62"/>
@@ -200,7 +201,7 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ed4-pv-im9">
-                                    <rect key="frame" x="55" y="0.0" width="50" height="62"/>
+                                    <rect key="frame" x="100" y="0.0" width="50" height="62"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <fontDescription key="fontDescription" name="Robo" family="Robo" pointSize="50"/>
                                     <state key="normal" title="X">
@@ -219,7 +220,7 @@
                                 <constraint firstItem="169-ch-vv0" firstAttribute="top" secondItem="dt4-Ds-xZD" secondAttribute="top" id="PVG-FX-xch"/>
                                 <constraint firstAttribute="trailing" secondItem="ed4-pv-im9" secondAttribute="trailing" id="UHC-Qa-OnT"/>
                                 <constraint firstItem="ed4-pv-im9" firstAttribute="centerY" secondItem="169-ch-vv0" secondAttribute="centerY" id="nnF-BN-cVS"/>
-                                <constraint firstItem="ed4-pv-im9" firstAttribute="leading" secondItem="169-ch-vv0" secondAttribute="trailing" constant="5" id="oxP-P0-DWf"/>
+                                <constraint firstItem="ed4-pv-im9" firstAttribute="leading" secondItem="169-ch-vv0" secondAttribute="trailing" constant="50" id="oxP-P0-DWf"/>
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SPW-72-gUo">

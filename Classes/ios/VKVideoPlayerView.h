@@ -11,6 +11,14 @@
 #import "VKView.h"
 #import "VKVideoPlayerConfig.h"
 
+
+#define VIDEO_BACKGROUND_COLOR                      @"#181818"
+#define SEEK_BAR_BACKGROUND_COLOR                   @"#000000"
+#define VIDEO_CONTROL_COLOR                         @"#e9b81f"
+#define VIDEO_NOTE_NORMAL_COLOR                     @"#e9b81f"
+#define VIDEO_NOTE_SELECTED_COLOR                   @"#da5a56"
+
+
 #define kPlayerControlsDisableAutoHide -1
 
 @class VKVideoPlayerTrack;
@@ -108,4 +116,7 @@
 - (void)addSubviewForControl:(UIView *)view toView:(UIView*)parentView;
 - (void)addSubviewForControl:(UIView *)view toView:(UIView*)parentView forOrientation:(UIInterfaceOrientationMask)orientation;
 - (void)removeControlView:(UIView*)view;
+
++ (UIColor *)colorFromHexString:(NSString *)hexCode;
+
 @end
