@@ -236,14 +236,19 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
     
     if (index == NSNotFound) {
         [_cuesArray addObject:cue];
+    } else {
+        [_cuesArray removeObjectAtIndex:index];
+        [_cuesArray insertObject:cue atIndex:index];
     }
+    
     [self loadCuesOnScrubber];
 }
 
 - (void)addCue:(NSDictionary *)cue atIndex:(NSInteger)index {
     
     NSNumber *number = cue[@"duration"];
-    NSInteger sec = [number integerValue];
+    NSInteger miliSec = [number integerValue];
+    NSInteger sec = miliSec/100;
     float x = (sec / _videoDuration) * CGRectGetWidth(self.scrubber.bounds);
     
     x+= CGRectGetMinX(self.scrubber.frame);
