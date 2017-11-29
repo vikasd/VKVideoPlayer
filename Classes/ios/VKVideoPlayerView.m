@@ -248,7 +248,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
     
     NSNumber *number = cue[@"duration"];
     NSInteger miliSec = [number integerValue];
-    NSInteger sec = miliSec/100;
+    NSInteger sec = miliSec/1000;
     float x = (sec / _videoDuration) * CGRectGetWidth(self.scrubber.bounds);
     
     x+= CGRectGetMinX(self.scrubber.frame);
