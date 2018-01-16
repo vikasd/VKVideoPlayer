@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -187,7 +187,7 @@
                             </constraints>
                         </view>
                         <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dt4-Ds-xZD">
-                            <rect key="frame" x="225" y="219" width="150" height="62"/>
+                            <rect key="frame" x="246" y="219" width="108" height="62"/>
                             <subviews>
                                 <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="169-ch-vv0">
                                     <rect key="frame" x="0.0" y="0.0" width="50" height="62"/>
@@ -201,7 +201,7 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ed4-pv-im9">
-                                    <rect key="frame" x="100" y="0.0" width="50" height="62"/>
+                                    <rect key="frame" x="58" y="0.0" width="50" height="62"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <fontDescription key="fontDescription" name="Robo" family="Robo" pointSize="50"/>
                                     <state key="normal" title="X">
@@ -220,11 +220,11 @@
                                 <constraint firstItem="169-ch-vv0" firstAttribute="top" secondItem="dt4-Ds-xZD" secondAttribute="top" id="PVG-FX-xch"/>
                                 <constraint firstAttribute="trailing" secondItem="ed4-pv-im9" secondAttribute="trailing" id="UHC-Qa-OnT"/>
                                 <constraint firstItem="ed4-pv-im9" firstAttribute="centerY" secondItem="169-ch-vv0" secondAttribute="centerY" id="nnF-BN-cVS"/>
-                                <constraint firstItem="ed4-pv-im9" firstAttribute="leading" secondItem="169-ch-vv0" secondAttribute="trailing" constant="50" id="oxP-P0-DWf"/>
+                                <constraint firstItem="ed4-pv-im9" firstAttribute="leading" secondItem="169-ch-vv0" secondAttribute="trailing" constant="8" id="oxP-P0-DWf"/>
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SPW-72-gUo">
-                            <rect key="frame" x="197" y="474" width="206" height="46"/>
+                            <rect key="frame" x="207" y="474" width="186" height="46"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1kw-GZ-Mpg">
                                     <rect key="frame" x="8" y="8" width="50" height="30"/>
@@ -241,7 +241,7 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nMW-vK-0VA">
-                                    <rect key="frame" x="78" y="8" width="50" height="30"/>
+                                    <rect key="frame" x="68" y="8" width="50" height="30"/>
                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                     <state key="normal" title="1.25x">
                                         <color key="titleColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -251,7 +251,7 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iyB-LY-mR5">
-                                    <rect key="frame" x="148" y="8" width="50" height="30"/>
+                                    <rect key="frame" x="128" y="8" width="50" height="30"/>
                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                     <state key="normal" title="1.50x">
                                         <color key="titleColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -268,10 +268,10 @@
                                 <constraint firstItem="1kw-GZ-Mpg" firstAttribute="top" secondItem="SPW-72-gUo" secondAttribute="top" constant="8" id="7vR-T8-Av5"/>
                                 <constraint firstItem="nMW-vK-0VA" firstAttribute="centerY" secondItem="1kw-GZ-Mpg" secondAttribute="centerY" id="8cX-D0-SND"/>
                                 <constraint firstItem="nMW-vK-0VA" firstAttribute="height" secondItem="1kw-GZ-Mpg" secondAttribute="height" id="BR9-h9-3C5"/>
-                                <constraint firstItem="iyB-LY-mR5" firstAttribute="leading" secondItem="nMW-vK-0VA" secondAttribute="trailing" constant="20" id="K0x-Ne-Hjv"/>
+                                <constraint firstItem="iyB-LY-mR5" firstAttribute="leading" secondItem="nMW-vK-0VA" secondAttribute="trailing" constant="10" id="K0x-Ne-Hjv"/>
                                 <constraint firstItem="1kw-GZ-Mpg" firstAttribute="leading" secondItem="SPW-72-gUo" secondAttribute="leading" constant="8" id="Qbp-DY-9tT"/>
                                 <constraint firstItem="iyB-LY-mR5" firstAttribute="width" secondItem="nMW-vK-0VA" secondAttribute="width" id="XBQ-pj-7gH"/>
-                                <constraint firstItem="nMW-vK-0VA" firstAttribute="leading" secondItem="1kw-GZ-Mpg" secondAttribute="trailing" constant="20" id="XYi-b9-LUf"/>
+                                <constraint firstItem="nMW-vK-0VA" firstAttribute="leading" secondItem="1kw-GZ-Mpg" secondAttribute="trailing" constant="10" id="XYi-b9-LUf"/>
                                 <constraint firstAttribute="bottom" secondItem="1kw-GZ-Mpg" secondAttribute="bottom" constant="8" id="cpH-qQ-uxR"/>
                                 <constraint firstItem="iyB-LY-mR5" firstAttribute="height" secondItem="nMW-vK-0VA" secondAttribute="height" id="sqs-bF-fs8"/>
                                 <constraint firstItem="nMW-vK-0VA" firstAttribute="width" secondItem="1kw-GZ-Mpg" secondAttribute="width" id="vbk-vo-USR"/>
