@@ -141,7 +141,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
         _playback_1_0_widthConstraint.constant = 50.0;
         _playback_1_0_heightConstraint.constant = 30.0;
         _verticalSpaceBetweenPlaybackHolderViewAndButtonControlHolderViewConstraint.constant = 20.0;
-        _horizontalSpaceBetweenPlayButtonAndNoteButtonConstraint.constant = 50.0;
+//        _horizontalSpaceBetweenPlayButtonAndNoteButtonConstraint.constant = 8.0;
         
         UIFont *font = [UIFont fontWithName:@"HelveticaNeue" size:14.0];
         self.playbackRate_1_0.titleLabel.font = self.playbackRate_1_25.titleLabel.font = self.playbackRate_1_50.titleLabel.font = font;
@@ -151,7 +151,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
         _playback_1_0_widthConstraint.constant = 40.0;
         _playback_1_0_heightConstraint.constant = 25.0;
         _verticalSpaceBetweenPlaybackHolderViewAndButtonControlHolderViewConstraint.constant = 10.0;
-        _horizontalSpaceBetweenPlayButtonAndNoteButtonConstraint.constant = 20.0;
+//        _horizontalSpaceBetweenPlayButtonAndNoteButtonConstraint.constant = 8.0;
         
         UIFont *font = [UIFont fontWithName:@"HelveticaNeue" size:12.0];
         self.playbackRate_1_0.titleLabel.font = self.playbackRate_1_25.titleLabel.font = self.playbackRate_1_50.titleLabel.font = font;
