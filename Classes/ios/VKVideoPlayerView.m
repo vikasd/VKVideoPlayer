@@ -260,7 +260,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
     button.titleLabel.font = [UIFont fontWithName:@"robo" size:[VKSharedUtility isPad] ? 40.0 : 24.0];
     [button setTitle:@"Ë" forState:UIControlStateNormal];
     
-    UIColor *color = [cue[@"important"] boolValue] ? [VKUtility colorWithHexString:@"#DA5C59"] : [VKUtility colorWithHexString:@"#F7ED82"];
+    UIColor *color = [cue[@"important"] boolValue] ? [VKVideoPlayerView colorFromHexString:@"#DA5C59"] : [VKVideoPlayerView colorFromHexString:@"#F7ED82"];
     [button setTitleColor:color forState:UIControlStateNormal];
     [button addTarget:self action:@selector(noteCueTapped:) forControlEvents:UIControlEventTouchUpInside];
     
