@@ -90,15 +90,31 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
     [self.fullscreenButton setTitleColor:controlColor forState:UIControlStateNormal];
     [self.fullscreenButton setTitleColor:controlColor forState:UIControlStateHighlighted];
     [self.fullscreenButton setTitleColor:controlColor forState:UIControlStateSelected];
+    
     [self.bigPlayButton setTitleColor:controlColor forState:UIControlStateNormal];
     [self.bigPlayButton setTitleColor:controlColor forState:UIControlStateHighlighted];
     [self.bigPlayButton setTitleColor:controlColor forState:UIControlStateSelected];
+    
     [self.bigPlayButton2 setTitleColor:controlColor forState:UIControlStateNormal];
     [self.bigPlayButton2 setTitleColor:controlColor forState:UIControlStateHighlighted];
     [self.bigPlayButton2 setTitleColor:controlColor forState:UIControlStateSelected];
+    
+    [self.bigPlayButton3 setTitleColor:controlColor forState:UIControlStateNormal];
+    [self.bigPlayButton3 setTitleColor:controlColor forState:UIControlStateHighlighted];
+    [self.bigPlayButton3 setTitleColor:controlColor forState:UIControlStateSelected];
+    
     [self.addNoteButton setTitleColor:controlColor forState:UIControlStateNormal];
     [self.addNoteButton setTitleColor:controlColor forState:UIControlStateHighlighted];
     [self.addNoteButton setTitleColor:controlColor forState:UIControlStateSelected];
+    
+    [self.addNoteButton2 setTitleColor:controlColor forState:UIControlStateNormal];
+    [self.addNoteButton2 setTitleColor:controlColor forState:UIControlStateHighlighted];
+    [self.addNoteButton2 setTitleColor:controlColor forState:UIControlStateSelected];
+    
+    [self.addToRevisionListButton setTitleColor:controlColor forState:UIControlStateNormal];
+    [self.addToRevisionListButton setTitleColor:controlColor forState:UIControlStateHighlighted];
+    [self.addToRevisionListButton setTitleColor:controlColor forState:UIControlStateSelected];
+    
     
     [self.playbackRate_1_0 setTitleColor:controlColor forState:UIControlStateNormal];
     [self.playbackRate_1_0 setTitleColor:controlColor forState:UIControlStateHighlighted];
@@ -131,10 +147,13 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
     
     BOOL isIPAD = [VKSharedUtility isPad];
     
-    UIFont *roboFont = [UIFont fontWithName:@"Robo" size: isIPAD ? 60.0 : 50.0];
+    UIFont *roboFont = [UIFont fontWithName:@"Robo" size: isIPAD ? 60.0 : 40.0];
     self.bigPlayButton.titleLabel.font = roboFont;
     self.bigPlayButton2.titleLabel.font = roboFont;
+    self.bigPlayButton3.titleLabel.font = roboFont;
     self.addNoteButton.titleLabel.font = roboFont;
+    self.addNoteButton2.titleLabel.font = roboFont;
+    self.addToRevisionListButton.titleLabel.font = roboFont;
     
     if (isIPAD) {
         
@@ -161,7 +180,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
     self.scrubber.maximumTrackTintColor = [UIColor lightGrayColor];
     self.scrubber.thumbTintColor = controlColor;
     
-    self.playButtonHolderView.hidden = self.buttonHolderView.hidden = YES;
+    self.playButtonHolderView.hidden = self.buttonHolderView.hidden =  self.buttonHolderView2.hidden = YES;
     self.cuesArray = [NSMutableArray array];
 }
 
@@ -280,6 +299,20 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
     } else {
         [self.delegate pauseButtonPressed];
         [self setPlayButtonsSelected:YES];
+    }
+}
+
+- (IBAction)addToRevisionListButtonTapped:(UIButton *)sender {
+    
+    if ([VKSharedUtility isPad]) {
+        [self.delegate addToRevisionListButtonTapped];
+    } else {
+        
+        if (self.fullscreenButton.selected) {
+            [self fullscreenButtonTapped:self.fullscreenButton];
+        }
+        
+        [self.delegate addToRevisionListButtonTapped];
     }
 }
 
@@ -413,12 +446,14 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
     self.playButton.selected = selected;
     self.bigPlayButton.selected = selected;
     self.bigPlayButton2.selected = selected;
+    self.bigPlayButton3.selected = selected;
 }
 
 - (void)setPlayButtonsEnabled:(BOOL)enabled {
     self.playButton.enabled = enabled;
     self.bigPlayButton.enabled = enabled;
     self.bigPlayButton2.enabled = enabled;
+    self.bigPlayButton3.enabled = enabled;
 }
 
 - (void)setControlsEnabled:(BOOL)enabled {

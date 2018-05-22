@@ -1,20 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="Helvetica.ttc">
-            <string>Helvetica</string>
-        </array>
-        <array key="HelveticaNeue.ttc">
-            <string>HelveticaNeue</string>
-        </array>
         <array key="Robo_VKVideoPlayer.ttf">
             <string>Robo</string>
         </array>
@@ -24,10 +18,14 @@
             <connections>
                 <outlet property="activityIndicator" destination="54" id="55"/>
                 <outlet property="addNoteButton" destination="ed4-pv-im9" id="PQE-oc-Jnx"/>
+                <outlet property="addNoteButton2" destination="Hpf-I7-KZW" id="mEW-Ha-jV1"/>
+                <outlet property="addToRevisionListButton" destination="BcA-QK-Q0d" id="unV-dk-PR5"/>
                 <outlet property="bigPlayButton" destination="169-ch-vv0" id="eHt-hQ-d1R"/>
                 <outlet property="bigPlayButton2" destination="v0X-C0-fL0" id="jG6-PO-A8V"/>
+                <outlet property="bigPlayButton3" destination="IuA-pT-7pY" id="GVg-ZE-YjQ"/>
                 <outlet property="bottonControlOverlay" destination="3" id="UsZ-E8-dvq"/>
                 <outlet property="buttonHolderView" destination="dt4-Ds-xZD" id="p9t-Ro-TZS"/>
+                <outlet property="buttonHolderView2" destination="B0U-y3-S95" id="iba-O2-h1h"/>
                 <outlet property="buttonOverlayView" destination="Zo3-cg-Ei9" id="M4N-bR-Jyc"/>
                 <outlet property="controls" destination="31" id="34"/>
                 <outlet property="currentTimeLabel" destination="83" id="85"/>
@@ -186,8 +184,45 @@
                                 <constraint firstAttribute="bottom" secondItem="v0X-C0-fL0" secondAttribute="bottom" id="oB6-R9-IWv"/>
                             </constraints>
                         </view>
+                        <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B0U-y3-S95">
+                            <rect key="frame" x="240" y="219" width="120" height="62"/>
+                            <subviews>
+                                <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IuA-pT-7pY">
+                                    <rect key="frame" x="0.0" y="0.0" width="50" height="62"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <fontDescription key="fontDescription" name="Robo" family="Robo" pointSize="50"/>
+                                    <state key="normal" title="Q">
+                                        <color key="titleColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="playButtonTapped:" destination="-1" eventType="touchUpInside" id="dgj-bj-7HP"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hpf-I7-KZW">
+                                    <rect key="frame" x="70" y="0.0" width="50" height="62"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <fontDescription key="fontDescription" name="Robo" family="Robo" pointSize="50"/>
+                                    <state key="normal" title="X">
+                                        <color key="titleColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="addNoteButtonTapped:" destination="-1" eventType="touchUpInside" id="KjJ-kl-dzo"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="trailing" secondItem="Hpf-I7-KZW" secondAttribute="trailing" id="Hvb-Ht-SJ1"/>
+                                <constraint firstItem="Hpf-I7-KZW" firstAttribute="centerY" secondItem="IuA-pT-7pY" secondAttribute="centerY" id="MIY-Kn-sSu"/>
+                                <constraint firstItem="Hpf-I7-KZW" firstAttribute="leading" secondItem="IuA-pT-7pY" secondAttribute="trailing" constant="20" id="PGS-tl-DAx"/>
+                                <constraint firstAttribute="bottom" secondItem="IuA-pT-7pY" secondAttribute="bottom" id="hf4-np-eqK"/>
+                                <constraint firstItem="IuA-pT-7pY" firstAttribute="leading" secondItem="B0U-y3-S95" secondAttribute="leading" id="iJP-Dv-sqw"/>
+                                <constraint firstItem="IuA-pT-7pY" firstAttribute="top" secondItem="B0U-y3-S95" secondAttribute="top" id="qu3-cc-Gei"/>
+                            </constraints>
+                        </view>
                         <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dt4-Ds-xZD">
-                            <rect key="frame" x="246" y="219" width="108" height="62"/>
+                            <rect key="frame" x="215" y="219" width="170" height="62"/>
                             <subviews>
                                 <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="169-ch-vv0">
                                     <rect key="frame" x="0.0" y="0.0" width="50" height="62"/>
@@ -201,7 +236,7 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ed4-pv-im9">
-                                    <rect key="frame" x="58" y="0.0" width="50" height="62"/>
+                                    <rect key="frame" x="70" y="0.0" width="50" height="62"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <fontDescription key="fontDescription" name="Robo" family="Robo" pointSize="50"/>
                                     <state key="normal" title="X">
@@ -212,15 +247,30 @@
                                         <action selector="addNoteButtonTapped:" destination="-1" eventType="touchUpInside" id="rlp-t3-52G"/>
                                     </connections>
                                 </button>
+                                <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BcA-QK-Q0d">
+                                    <rect key="frame" x="140" y="0.0" width="30" height="62"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <fontDescription key="fontDescription" name="Robo" family="Robo" pointSize="50"/>
+                                    <state key="normal" title="ż">
+                                        <color key="titleColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </state>
+                                    <state key="selected" title="ƌ"/>
+                                    <connections>
+                                        <action selector="addToRevisionListButtonTapped:" destination="-1" eventType="touchUpInside" id="q9A-gB-igB"/>
+                                    </connections>
+                                </button>
                             </subviews>
-                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstAttribute="bottom" secondItem="169-ch-vv0" secondAttribute="bottom" id="86V-xC-Sv5"/>
+                                <constraint firstAttribute="trailing" secondItem="BcA-QK-Q0d" secondAttribute="trailing" id="9RN-PM-C03"/>
                                 <constraint firstItem="169-ch-vv0" firstAttribute="leading" secondItem="dt4-Ds-xZD" secondAttribute="leading" id="MSh-xP-q16"/>
                                 <constraint firstItem="169-ch-vv0" firstAttribute="top" secondItem="dt4-Ds-xZD" secondAttribute="top" id="PVG-FX-xch"/>
-                                <constraint firstAttribute="trailing" secondItem="ed4-pv-im9" secondAttribute="trailing" id="UHC-Qa-OnT"/>
+                                <constraint firstItem="BcA-QK-Q0d" firstAttribute="centerY" secondItem="169-ch-vv0" secondAttribute="centerY" id="aVS-h8-pC7"/>
+                                <constraint firstItem="BcA-QK-Q0d" firstAttribute="leading" secondItem="ed4-pv-im9" secondAttribute="trailing" constant="20" id="jqy-U5-QRY"/>
                                 <constraint firstItem="ed4-pv-im9" firstAttribute="centerY" secondItem="169-ch-vv0" secondAttribute="centerY" id="nnF-BN-cVS"/>
-                                <constraint firstItem="ed4-pv-im9" firstAttribute="leading" secondItem="169-ch-vv0" secondAttribute="trailing" constant="8" id="oxP-P0-DWf"/>
+                                <constraint firstItem="ed4-pv-im9" firstAttribute="leading" secondItem="169-ch-vv0" secondAttribute="trailing" constant="20" id="oxP-P0-DWf"/>
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SPW-72-gUo">
@@ -287,7 +337,9 @@
                         <constraint firstItem="SPW-72-gUo" firstAttribute="centerX" secondItem="JST-MU-rFB" secondAttribute="centerX" id="JPy-So-Dba"/>
                         <constraint firstItem="dt4-Ds-xZD" firstAttribute="centerX" secondItem="JST-MU-rFB" secondAttribute="centerX" id="O1l-4b-Kva"/>
                         <constraint firstAttribute="trailing" secondItem="3" secondAttribute="trailing" id="RkQ-vU-gtR"/>
+                        <constraint firstItem="B0U-y3-S95" firstAttribute="centerY" secondItem="JST-MU-rFB" secondAttribute="centerY" id="bot-Sp-h4p"/>
                         <constraint firstAttribute="bottom" secondItem="3" secondAttribute="bottom" id="fIs-HJ-jeZ"/>
+                        <constraint firstItem="B0U-y3-S95" firstAttribute="centerX" secondItem="31" secondAttribute="centerX" id="gNY-zl-VFX"/>
                         <constraint firstItem="3" firstAttribute="leading" secondItem="31" secondAttribute="leading" id="mcs-fv-EsC"/>
                         <constraint firstItem="3" firstAttribute="top" secondItem="SPW-72-gUo" secondAttribute="bottom" constant="20" id="t75-0f-CpU"/>
                     </constraints>

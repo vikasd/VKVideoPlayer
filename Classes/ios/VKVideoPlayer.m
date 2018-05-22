@@ -846,7 +846,8 @@ typedef enum {
             case VKVideoPlayerStateContentPlaying:
                 break;
             case VKVideoPlayerStateContentPaused:
-                self.view.buttonOverlayView.hidden = self.view.buttonHolderView.hidden = self.view.playButtonHolderView.hidden = YES ;
+                self.view.buttonOverlayView.hidden = self.view.buttonHolderView.hidden =
+                self.view.buttonHolderView2.hidden = self.view.playButtonHolderView.hidden = YES;
                 break;
             case VKVideoPlayerStateDismissed:
                 break;
@@ -881,8 +882,11 @@ typedef enum {
                 self.track.lastDurationWatchedInSeconds = [NSNumber numberWithFloat:[self currentTime]];
                 self.view.buttonOverlayView.hidden = NO;
                 self.view.playbackRateButtonHolderView.backgroundColor = [UIColor clearColor];
-                if (self.avNoteEnabled) {
+                
+                if (self.revisionEnabled) {
                     self.view.buttonHolderView.hidden = NO;
+                } else if (self.avNoteEnabled) {
+                    self.view.buttonHolderView2.hidden = NO;
                 } else {
                     self.view.playButtonHolderView.hidden = NO;
                 }
@@ -1065,6 +1069,11 @@ typedef enum {
 - (void)noteButtonTapped {
     [self.delegate addVideoNote:self];
 }
+
+- (void)addToRevisionListButtonTapped {
+    [self.delegate addToRevisionList:self];
+}
+
 
 - (void)noteSelected:(NSString *)noteId {
     [self.delegate noteSelected:noteId];

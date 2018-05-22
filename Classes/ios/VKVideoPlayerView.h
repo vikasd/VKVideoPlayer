@@ -27,11 +27,13 @@
 @protocol VKVideoPlayerViewDelegate <VKScrubberDelegate>
 @property (nonatomic, readonly) VKVideoPlayerTrack* videoTrack;
 @property (nonatomic, readonly) UIInterfaceOrientation visibleInterfaceOrientation;
+
 - (void)fullScreenButtonTapped;
 - (void)playButtonPressed;
 - (void)pauseButtonPressed;
 - (void)playbackRateChanged:(float)rate;
 - (void)noteButtonTapped;
+- (void)addToRevisionListButtonTapped;
 - (void)noteSelected:(NSString *)noteId;
 
 - (void)nextTrackButtonPressed;
@@ -70,11 +72,17 @@
 
 @property (weak, nonatomic) IBOutlet UIView *buttonHolderView;
 @property (nonatomic, strong) IBOutlet UIButton* bigPlayButton;
+@property (unsafe_unretained, nonatomic) IBOutlet UIButton *addToRevisionListButton;
 @property (weak, nonatomic) IBOutlet UIButton *addNoteButton;
 @property (unsafe_unretained, nonatomic) IBOutlet UIView *playButtonHolderView;
 @property (unsafe_unretained, nonatomic) IBOutlet UIButton *bigPlayButton2;
 
 @property (weak, nonatomic) IBOutlet UIView *playbackRateButtonHolderView;
+
+@property (unsafe_unretained, nonatomic) IBOutlet UIView *buttonHolderView2;
+@property (unsafe_unretained, nonatomic) IBOutlet UIButton *bigPlayButton3;
+@property (unsafe_unretained, nonatomic) IBOutlet UIButton *addNoteButton2;
+
 @property (weak, nonatomic) IBOutlet UIButton *playbackRate_1_0;
 @property (weak, nonatomic) IBOutlet UIButton *playbackRate_1_25;
 @property (weak, nonatomic) IBOutlet UIButton *playbackRate_1_50;
@@ -92,6 +100,7 @@
 
 - (IBAction)fullscreenButtonTapped:(id)sender;
 - (IBAction)playButtonTapped:(id)sender;
+- (IBAction)addToRevisionListButtonTapped:(UIButton *)sender;
 - (IBAction)addNoteButtonTapped:(UIButton *)sender;
 - (IBAction)playbackRateChangeButtonTapped:(UIButton *)sender;
 

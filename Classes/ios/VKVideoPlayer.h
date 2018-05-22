@@ -67,6 +67,7 @@ typedef enum {
 @optional
 
 - (void)addVideoNote:(VKVideoPlayer *)videoPlayer;
+- (void)addToRevisionList:(VKVideoPlayer *)videoPlayer;
 - (void)noteSelected:(NSString *)noteId;
 - (BOOL)shouldVideoPlayer:(VKVideoPlayer*)videoPlayer changeStateTo:(VKVideoPlayerState)toState;
 - (void)videoPlayer:(VKVideoPlayer*)videoPlayer willChangeStateTo:(VKVideoPlayerState)toState;
@@ -123,6 +124,7 @@ VKVideoPlayerViewDelegate
 @property (nonatomic, assign) BOOL isFullScreen;
 @property (nonatomic, assign) BOOL autoPlay;
 @property (nonatomic, assign) BOOL avNoteEnabled;
+@property (nonatomic, assign) BOOL revisionEnabled;
 
 @property (nonatomic, strong) id<VKVideoPlayerExternalMonitorProtocol> externalMonitor;
 
