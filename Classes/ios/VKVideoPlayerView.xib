@@ -185,7 +185,7 @@
                             </constraints>
                         </view>
                         <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B0U-y3-S95">
-                            <rect key="frame" x="240" y="219" width="120" height="62"/>
+                            <rect key="frame" x="230" y="219" width="140" height="62"/>
                             <subviews>
                                 <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IuA-pT-7pY">
                                     <rect key="frame" x="0.0" y="0.0" width="50" height="62"/>
@@ -199,7 +199,7 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hpf-I7-KZW">
-                                    <rect key="frame" x="70" y="0.0" width="50" height="62"/>
+                                    <rect key="frame" x="90" y="0.0" width="50" height="62"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <fontDescription key="fontDescription" name="Robo" family="Robo" pointSize="50"/>
                                     <state key="normal" title="X">
@@ -215,14 +215,16 @@
                             <constraints>
                                 <constraint firstAttribute="trailing" secondItem="Hpf-I7-KZW" secondAttribute="trailing" id="Hvb-Ht-SJ1"/>
                                 <constraint firstItem="Hpf-I7-KZW" firstAttribute="centerY" secondItem="IuA-pT-7pY" secondAttribute="centerY" id="MIY-Kn-sSu"/>
-                                <constraint firstItem="Hpf-I7-KZW" firstAttribute="leading" secondItem="IuA-pT-7pY" secondAttribute="trailing" constant="20" id="PGS-tl-DAx"/>
+                                <constraint firstItem="Hpf-I7-KZW" firstAttribute="leading" secondItem="IuA-pT-7pY" secondAttribute="trailing" constant="40" id="PGS-tl-DAx"/>
+                                <constraint firstItem="IuA-pT-7pY" firstAttribute="height" secondItem="Hpf-I7-KZW" secondAttribute="height" id="fEu-qx-xR5"/>
                                 <constraint firstAttribute="bottom" secondItem="IuA-pT-7pY" secondAttribute="bottom" id="hf4-np-eqK"/>
                                 <constraint firstItem="IuA-pT-7pY" firstAttribute="leading" secondItem="B0U-y3-S95" secondAttribute="leading" id="iJP-Dv-sqw"/>
                                 <constraint firstItem="IuA-pT-7pY" firstAttribute="top" secondItem="B0U-y3-S95" secondAttribute="top" id="qu3-cc-Gei"/>
+                                <constraint firstItem="IuA-pT-7pY" firstAttribute="width" secondItem="Hpf-I7-KZW" secondAttribute="width" id="yyJ-7p-hUl"/>
                             </constraints>
                         </view>
                         <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dt4-Ds-xZD">
-                            <rect key="frame" x="215" y="219" width="170" height="62"/>
+                            <rect key="frame" x="185" y="219" width="230" height="62"/>
                             <subviews>
                                 <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="169-ch-vv0">
                                     <rect key="frame" x="0.0" y="0.0" width="50" height="62"/>
@@ -236,7 +238,7 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ed4-pv-im9">
-                                    <rect key="frame" x="70" y="0.0" width="50" height="62"/>
+                                    <rect key="frame" x="90" y="0.0" width="50" height="62"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <fontDescription key="fontDescription" name="Robo" family="Robo" pointSize="50"/>
                                     <state key="normal" title="X">
@@ -248,7 +250,7 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BcA-QK-Q0d">
-                                    <rect key="frame" x="140" y="0.0" width="30" height="62"/>
+                                    <rect key="frame" x="180" y="0.0" width="50" height="62"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <fontDescription key="fontDescription" name="Robo" family="Robo" pointSize="50"/>
                                     <state key="normal" title="ż">
@@ -265,12 +267,16 @@
                             <constraints>
                                 <constraint firstAttribute="bottom" secondItem="169-ch-vv0" secondAttribute="bottom" id="86V-xC-Sv5"/>
                                 <constraint firstAttribute="trailing" secondItem="BcA-QK-Q0d" secondAttribute="trailing" id="9RN-PM-C03"/>
+                                <constraint firstItem="169-ch-vv0" firstAttribute="height" secondItem="ed4-pv-im9" secondAttribute="height" id="IhO-d9-Y5U"/>
                                 <constraint firstItem="169-ch-vv0" firstAttribute="leading" secondItem="dt4-Ds-xZD" secondAttribute="leading" id="MSh-xP-q16"/>
                                 <constraint firstItem="169-ch-vv0" firstAttribute="top" secondItem="dt4-Ds-xZD" secondAttribute="top" id="PVG-FX-xch"/>
+                                <constraint firstItem="169-ch-vv0" firstAttribute="height" secondItem="BcA-QK-Q0d" secondAttribute="height" id="USS-Fc-VuT"/>
+                                <constraint firstItem="169-ch-vv0" firstAttribute="width" secondItem="BcA-QK-Q0d" secondAttribute="width" id="V2E-a1-enx"/>
                                 <constraint firstItem="BcA-QK-Q0d" firstAttribute="centerY" secondItem="169-ch-vv0" secondAttribute="centerY" id="aVS-h8-pC7"/>
-                                <constraint firstItem="BcA-QK-Q0d" firstAttribute="leading" secondItem="ed4-pv-im9" secondAttribute="trailing" constant="20" id="jqy-U5-QRY"/>
+                                <constraint firstItem="BcA-QK-Q0d" firstAttribute="leading" secondItem="ed4-pv-im9" secondAttribute="trailing" constant="40" id="jqy-U5-QRY"/>
+                                <constraint firstItem="169-ch-vv0" firstAttribute="width" secondItem="ed4-pv-im9" secondAttribute="width" id="lLE-Tp-eh8"/>
                                 <constraint firstItem="ed4-pv-im9" firstAttribute="centerY" secondItem="169-ch-vv0" secondAttribute="centerY" id="nnF-BN-cVS"/>
-                                <constraint firstItem="ed4-pv-im9" firstAttribute="leading" secondItem="169-ch-vv0" secondAttribute="trailing" constant="20" id="oxP-P0-DWf"/>
+                                <constraint firstItem="ed4-pv-im9" firstAttribute="leading" secondItem="169-ch-vv0" secondAttribute="trailing" constant="40" id="oxP-P0-DWf"/>
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SPW-72-gUo">

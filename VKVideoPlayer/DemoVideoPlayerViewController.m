@@ -19,6 +19,8 @@
     
     self.player = [[VKVideoPlayer alloc] init];
     self.player.delegate = self;
+    self.player.revisionEnabled = YES;
+    self.player.avNoteEnabled = YES;
     self.player.forceRotate = YES;
     self.player.view.frame = self.view.bounds;
     self.player.view.playerControlsAutoHideTime = @10;
