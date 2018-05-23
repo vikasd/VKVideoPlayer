@@ -90,21 +90,21 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
     [self.playButton setTitleColor:controlColor forState:UIControlStateNormal];
     [self.playButton setTitleColor:controlColor forState:UIControlStateHighlighted];
     [self.playButton setTitleColor:controlColor forState:UIControlStateSelected];
-
+    
     [self.fullscreenButton setTitleColor:controlColor forState:UIControlStateNormal];
     [self.fullscreenButton setTitleColor:controlColor forState:UIControlStateHighlighted];
     [self.fullscreenButton setTitleColor:controlColor forState:UIControlStateSelected];
     
     
     NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:@"Q\n\nPlay\n "
-                                                                                         attributes:@{NSFontAttributeName: [UIFont fontWithName:@"HelveticaNeue" size: isIPAD ? 14.0 : 12.0], NSForegroundColorAttributeName : controlColor}];
+                                                                                         attributes:@{NSFontAttributeName: [UIFont fontWithName:@"HelveticaNeue" size: isIPAD ? 14.0 : 10.0], NSForegroundColorAttributeName : controlColor}];
     
     
-    [attributedString setAttributes:@{NSFontAttributeName: [UIFont fontWithName:@"Robo" size: isIPAD ? 50.0 : 40.0],
+    [attributedString setAttributes:@{NSFontAttributeName: [UIFont fontWithName:@"Robo" size: isIPAD ? 50.0 : 30.0],
                                       NSForegroundColorAttributeName: controlColor}
                               range:NSMakeRange(0, 1)];
     
-
+    
     self.bigPlayButton.titleLabel.numberOfLines = 5;
     self.bigPlayButton.titleLabel.textAlignment = NSTextAlignmentCenter;
     
@@ -127,24 +127,11 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
     [self.bigPlayButton3 setAttributedTitle:attributedString forState:UIControlStateHighlighted];
     [self.bigPlayButton3 setAttributedTitle:attributedString forState:UIControlStateSelected];
     
-    
-//    [self.bigPlayButton setTitleColor:controlColor forState:UIControlStateNormal];
-//    [self.bigPlayButton setTitleColor:controlColor forState:UIControlStateHighlighted];
-//    [self.bigPlayButton setTitleColor:controlColor forState:UIControlStateSelected];
-//
-//    [self.bigPlayButton2 setTitleColor:controlColor forState:UIControlStateNormal];
-//    [self.bigPlayButton2 setTitleColor:controlColor forState:UIControlStateHighlighted];
-//    [self.bigPlayButton2 setTitleColor:controlColor forState:UIControlStateSelected];
-//
-//    [self.bigPlayButton3 setTitleColor:controlColor forState:UIControlStateNormal];
-//    [self.bigPlayButton3 setTitleColor:controlColor forState:UIControlStateHighlighted];
-//    [self.bigPlayButton3 setTitleColor:controlColor forState:UIControlStateSelected];
-    
-    NSMutableAttributedString *addNoteAttributedText = [[NSMutableAttributedString alloc] initWithString:@"X\n\nAdd Note\n "
-                                                                                         attributes:@{NSFontAttributeName: [UIFont fontWithName:@"HelveticaNeue" size: isIPAD ? 14.0 : 12.0], NSForegroundColorAttributeName : controlColor}];
+    attributedString = [[NSMutableAttributedString alloc] initWithString:@"X\n\nAdd Note\n "
+                                                              attributes:@{NSFontAttributeName: [UIFont fontWithName:@"HelveticaNeue" size: isIPAD ? 14.0 : 10.0], NSForegroundColorAttributeName : controlColor}];
     
     
-    [addNoteAttributedText setAttributes:@{NSFontAttributeName: [UIFont fontWithName:@"Robo" size: isIPAD ? 50.0 : 40.0],
+    [attributedString setAttributes:@{NSFontAttributeName: [UIFont fontWithName:@"Robo" size: isIPAD ? 50.0 : 30.0],
                                       NSForegroundColorAttributeName: controlColor}
                               range:NSMakeRange(0, 1)];
     
@@ -152,54 +139,43 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
     self.addNoteButton.titleLabel.numberOfLines = 5;
     self.addNoteButton.titleLabel.textAlignment = NSTextAlignmentCenter;
     
-    [self.addNoteButton setAttributedTitle:addNoteAttributedText forState:UIControlStateNormal];
-    [self.addNoteButton setAttributedTitle:addNoteAttributedText forState:UIControlStateHighlighted];
-    [self.addNoteButton setAttributedTitle:addNoteAttributedText forState:UIControlStateSelected];
+    [self.addNoteButton setAttributedTitle:attributedString forState:UIControlStateNormal];
+    [self.addNoteButton setAttributedTitle:attributedString forState:UIControlStateHighlighted];
+    [self.addNoteButton setAttributedTitle:attributedString forState:UIControlStateSelected];
     
-    self.addNoteButton2.titleLabel.numberOfLines = 3;
+    self.addNoteButton2.titleLabel.numberOfLines = 5;
     self.addNoteButton2.titleLabel.textAlignment = NSTextAlignmentCenter;
     
-    [self.addNoteButton2 setAttributedTitle:addNoteAttributedText forState:UIControlStateNormal];
-    [self.addNoteButton2 setAttributedTitle:addNoteAttributedText forState:UIControlStateHighlighted];
-    [self.addNoteButton2 setAttributedTitle:addNoteAttributedText forState:UIControlStateSelected];
+    [self.addNoteButton2 setAttributedTitle:attributedString forState:UIControlStateNormal];
+    [self.addNoteButton2 setAttributedTitle:attributedString forState:UIControlStateHighlighted];
+    [self.addNoteButton2 setAttributedTitle:attributedString forState:UIControlStateSelected];
+    
+    attributedString = [[NSMutableAttributedString alloc] initWithString:@"ż\n\nAdd To\nRevision List"
+                                                              attributes:@{NSFontAttributeName: [UIFont fontWithName:@"HelveticaNeue" size: isIPAD ? 14.0 : 10.0], NSForegroundColorAttributeName : controlColor}];
     
     
-//    [self.addNoteButton setTitleColor:controlColor forState:UIControlStateNormal];
-//    [self.addNoteButton setTitleColor:controlColor forState:UIControlStateHighlighted];
-//    [self.addNoteButton setTitleColor:controlColor forState:UIControlStateSelected];
-//
-//    [self.addNoteButton2 setTitleColor:controlColor forState:UIControlStateNormal];
-//    [self.addNoteButton2 setTitleColor:controlColor forState:UIControlStateHighlighted];
-//    [self.addNoteButton2 setTitleColor:controlColor forState:UIControlStateSelected];
+    [attributedString setAttributes:@{NSFontAttributeName: [UIFont fontWithName:@"Robo" size: isIPAD ? 50.0 : 30.0],
+                                      NSForegroundColorAttributeName: controlColor}
+                              range:NSMakeRange(0, 1)];
     
-    NSMutableAttributedString *noramlText = [[NSMutableAttributedString alloc] initWithString:@"ż\n\nAdd To\nRevision List"
-                                                                                              attributes:@{NSFontAttributeName: [UIFont fontWithName:@"HelveticaNeue" size: isIPAD ? 14.0 : 12.0], NSForegroundColorAttributeName : controlColor}];
-    
-    
-    [noramlText setAttributes:@{NSFontAttributeName: [UIFont fontWithName:@"Robo" size: isIPAD ? 50.0 : 40.0],
-                                           NSForegroundColorAttributeName: controlColor}
-                                   range:NSMakeRange(0, 1)];
-    
-    
-    NSMutableAttributedString *selectedText = [[NSMutableAttributedString alloc] initWithString:@"ƌ\n\nRemove From\nRevision List"
-                                                                                   attributes:@{NSFontAttributeName: [UIFont fontWithName:@"HelveticaNeue" size: isIPAD ? 14.0 : 12.0], NSForegroundColorAttributeName : controlColor}];
-    
-    
-    [selectedText setAttributes:@{NSFontAttributeName: [UIFont fontWithName:@"Robo" size: isIPAD ? 50.0 : 40.0],
-                                NSForegroundColorAttributeName: controlColor}
-                        range:NSMakeRange(0, 1)];
     
     self.addToRevisionListButton.titleLabel.numberOfLines = 5;
     self.addToRevisionListButton.titleLabel.textAlignment = NSTextAlignmentCenter;
     
-    [self.addToRevisionListButton setAttributedTitle:noramlText forState:UIControlStateNormal];
-    [self.addToRevisionListButton setAttributedTitle:noramlText forState:UIControlStateHighlighted];
-    [self.addToRevisionListButton setAttributedTitle:selectedText forState:UIControlStateSelected];
+    [self.addToRevisionListButton setAttributedTitle:attributedString forState:UIControlStateNormal];
+    [self.addToRevisionListButton setAttributedTitle:attributedString forState:UIControlStateHighlighted];
     
-//    [self.addToRevisionListButton setTitleColor:controlColor forState:UIControlStateNormal];
-//    [self.addToRevisionListButton setTitleColor:controlColor forState:UIControlStateHighlighted];
-//    [self.addToRevisionListButton setTitleColor:controlColor forState:UIControlStateSelected];
     
+    attributedString = [[NSMutableAttributedString alloc] initWithString:@"ƌ\n\nRemove From\nRevision List"
+                                                              attributes:@{NSFontAttributeName: [UIFont fontWithName:@"HelveticaNeue" size: isIPAD ? 14.0 : 10.0], NSForegroundColorAttributeName : controlColor}];
+    
+    
+    [attributedString setAttributes:@{NSFontAttributeName: [UIFont fontWithName:@"Robo" size: isIPAD ? 50.0 : 30.0],
+                                      NSForegroundColorAttributeName: controlColor}
+                              range:NSMakeRange(0, 1)];
+    
+    
+    [self.addToRevisionListButton setAttributedTitle:attributedString forState:UIControlStateSelected];
     
     [self.playbackRate_1_0 setTitleColor:controlColor forState:UIControlStateNormal];
     [self.playbackRate_1_0 setTitleColor:controlColor forState:UIControlStateHighlighted];
@@ -229,23 +205,11 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
     self.playbackRate_1_0.selected = YES;
     self.playbackRate_1_0.backgroundColor = controlColor;
     
-    
-    
-    
-    UIFont *roboFont = [UIFont fontWithName:@"Robo" size: isIPAD ? 60.0 : 40.0];
-//    self.bigPlayButton.titleLabel.font = roboFont;
-//    self.bigPlayButton2.titleLabel.font = roboFont;
-//    self.bigPlayButton3.titleLabel.font = roboFont;
-    self.addNoteButton.titleLabel.font = roboFont;
-    self.addNoteButton2.titleLabel.font = roboFont;
-    self.addToRevisionListButton.titleLabel.font = roboFont;
-    
     if (isIPAD) {
         
         _playback_1_0_widthConstraint.constant = 50.0;
         _playback_1_0_heightConstraint.constant = 30.0;
         _verticalSpaceBetweenPlaybackHolderViewAndButtonControlHolderViewConstraint.constant = 20.0;
-//        _horizontalSpaceBetweenPlayButtonAndNoteButtonConstraint.constant = 8.0;
         
         UIFont *font = [UIFont fontWithName:@"HelveticaNeue" size:14.0];
         self.playbackRate_1_0.titleLabel.font = self.playbackRate_1_25.titleLabel.font = self.playbackRate_1_50.titleLabel.font = font;
@@ -255,7 +219,6 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
         _playback_1_0_widthConstraint.constant = 40.0;
         _playback_1_0_heightConstraint.constant = 25.0;
         _verticalSpaceBetweenPlaybackHolderViewAndButtonControlHolderViewConstraint.constant = 10.0;
-//        _horizontalSpaceBetweenPlayButtonAndNoteButtonConstraint.constant = 8.0;
         
         UIFont *font = [UIFont fontWithName:@"HelveticaNeue" size:12.0];
         self.playbackRate_1_0.titleLabel.font = self.playbackRate_1_25.titleLabel.font = self.playbackRate_1_50.titleLabel.font = font;
@@ -415,7 +378,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 }
 
 - (IBAction)playbackRateChangeButtonTapped:(UIButton *)sender {
-
+    
     if (sender.selected) {
         return;
     }
