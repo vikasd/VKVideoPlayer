@@ -75,16 +75,29 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
     self.view.backgroundColor = [VKVideoPlayerView colorFromHexString:VIDEO_BACKGROUND_COLOR];
     self.buttonOverlayView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.5];
     
-    self.playbackRateButtonHolderView.backgroundColor = self.bottonControlOverlay.backgroundColor = [[VKVideoPlayerView colorFromHexString:VIDEO_BACKGROUND_COLOR] colorWithAlphaComponent:0.5];
+    self.playButtonHolderView.backgroundColor =  self.buttonHolderView.backgroundColor =
+    self.buttonHolderView2.backgroundColor = self.playbackRateButtonHolderView.backgroundColor =
+    self.bottonControlOverlay.backgroundColor = [[VKVideoPlayerView colorFromHexString:VIDEO_BACKGROUND_COLOR] colorWithAlphaComponent:0.5];
     
-    self.playbackRateButtonHolderView.layer.cornerRadius = 8.0;
+    self.playButtonHolderView.layer.cornerRadius = self.buttonHolderView.layer.cornerRadius =
+    self.buttonHolderView2.layer.cornerRadius = self.playbackRateButtonHolderView.layer.cornerRadius = 8.0;
     
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(blankTap:)];
     [self.bottonControlOverlay addGestureRecognizer:tapGesture];
     
-    UITapGestureRecognizer *blankTapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(blankTap:)];
-    [self.playbackRateButtonHolderView addGestureRecognizer:blankTapGesture];
+    UITapGestureRecognizer *playRateButtonHolderViewBlankTapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(blankTap:)];
+    [self.playbackRateButtonHolderView addGestureRecognizer:playRateButtonHolderViewBlankTapGesture];
     
+    UITapGestureRecognizer *playButtonHolderViewBlankTapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(blankTap:)];
+    [self.playButtonHolderView addGestureRecognizer:playButtonHolderViewBlankTapGesture];
+    
+    UITapGestureRecognizer *buttonHolderViewBlankTapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(blankTap:)];
+    [self.buttonHolderView addGestureRecognizer:buttonHolderViewBlankTapGesture];
+    
+    UITapGestureRecognizer *buttonHolderView2BlankTapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(blankTap:)];
+    [self.buttonHolderView2 addGestureRecognizer:buttonHolderView2BlankTapGesture];
+    
+
     UIColor *controlColor = [VKVideoPlayerView colorFromHexString:VIDEO_CONTROL_COLOR];
     
     [self.playButton setTitleColor:controlColor forState:UIControlStateNormal];
@@ -96,7 +109,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
     [self.fullscreenButton setTitleColor:controlColor forState:UIControlStateSelected];
     
     
-    NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:@"Q\n\nPlay\n "
+    NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:@"k\n\nPause\n "
                                                                                          attributes:@{NSFontAttributeName: [UIFont fontWithName:@"HelveticaNeue" size: isIPAD ? 14.0 : 10.0], NSForegroundColorAttributeName : controlColor}];
     
     
@@ -107,25 +120,39 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
     
     self.bigPlayButton.titleLabel.numberOfLines = 5;
     self.bigPlayButton.titleLabel.textAlignment = NSTextAlignmentCenter;
-    
-    
     [self.bigPlayButton setAttributedTitle:attributedString forState:UIControlStateNormal];
-    [self.bigPlayButton setAttributedTitle:attributedString forState:UIControlStateHighlighted];
-    [self.bigPlayButton setAttributedTitle:attributedString forState:UIControlStateSelected];
+    
+    
     
     self.bigPlayButton2.titleLabel.numberOfLines = 5;
     self.bigPlayButton2.titleLabel.textAlignment = NSTextAlignmentCenter;
-    
     [self.bigPlayButton2 setAttributedTitle:attributedString forState:UIControlStateNormal];
-    [self.bigPlayButton2 setAttributedTitle:attributedString forState:UIControlStateHighlighted];
-    [self.bigPlayButton2 setAttributedTitle:attributedString forState:UIControlStateSelected];
+    
     
     self.bigPlayButton3.titleLabel.numberOfLines = 5;
     self.bigPlayButton3.titleLabel.textAlignment = NSTextAlignmentCenter;
-    
     [self.bigPlayButton3 setAttributedTitle:attributedString forState:UIControlStateNormal];
+    
+    
+    
+    
+    attributedString = [[NSMutableAttributedString alloc] initWithString:@"Q\n\nPlay\n "
+                                                              attributes:@{NSFontAttributeName: [UIFont fontWithName:@"HelveticaNeue" size: isIPAD ? 14.0 : 10.0], NSForegroundColorAttributeName : controlColor}];
+    
+    
+    [attributedString setAttributes:@{NSFontAttributeName: [UIFont fontWithName:@"Robo" size: isIPAD ? 50.0 : 30.0],
+                                      NSForegroundColorAttributeName: controlColor}
+                              range:NSMakeRange(0, 1)];
+    
+    
+    [self.bigPlayButton setAttributedTitle:attributedString forState:UIControlStateHighlighted];
+    [self.bigPlayButton2 setAttributedTitle:attributedString forState:UIControlStateHighlighted];
     [self.bigPlayButton3 setAttributedTitle:attributedString forState:UIControlStateHighlighted];
+    
+    [self.bigPlayButton setAttributedTitle:attributedString forState:UIControlStateSelected];
+    [self.bigPlayButton2 setAttributedTitle:attributedString forState:UIControlStateSelected];
     [self.bigPlayButton3 setAttributedTitle:attributedString forState:UIControlStateSelected];
+    
     
     attributedString = [[NSMutableAttributedString alloc] initWithString:@"X\n\nAdd Note\n "
                                                               attributes:@{NSFontAttributeName: [UIFont fontWithName:@"HelveticaNeue" size: isIPAD ? 14.0 : 10.0], NSForegroundColorAttributeName : controlColor}];
@@ -228,7 +255,8 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
     self.scrubber.maximumTrackTintColor = [UIColor lightGrayColor];
     self.scrubber.thumbTintColor = controlColor;
     
-    self.playButtonHolderView.hidden = self.buttonHolderView.hidden =  self.buttonHolderView2.hidden = YES;
+    self.playButtonHolderView.hidden = self.buttonHolderView.hidden =
+    self.buttonHolderView2.hidden = self.playbackRateButtonHolderView.hidden = YES;
     self.cuesArray = [NSMutableArray array];
 }
 

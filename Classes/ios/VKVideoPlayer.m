@@ -108,7 +108,6 @@ typedef enum {
     self.beforeSeek = 0.0;
     self.playbackRate = 1.0;
     self.previousPlaybackTime = 0;
-    //  self.supportedOrientations = [[UIApplication sharedApplication] supportedInterfaceOrientationsForWindow:[[UIApplication sharedApplication] keyWindow]];
     self.supportedOrientations = VKSharedUtility.isPad ? UIInterfaceOrientationMaskAll : UIInterfaceOrientationMaskAllButUpsideDown;
     
     self.forceRotate = NO;
@@ -872,23 +871,48 @@ typedef enum {
                 self.playerControlsEnabled = YES;
                 [self.view setPlayButtonsSelected:NO];
                 self.view.playerLayerView.hidden = NO;
+                
                 [self.player play];
-                self.view.playbackRateButtonHolderView.backgroundColor = [[VKVideoPlayerView colorFromHexString:VIDEO_BACKGROUND_COLOR] colorWithAlphaComponent:0.5];
+                
+                self.view.playbackRateButtonHolderView.hidden = NO;
+                
+                self.view.buttonHolderView2.backgroundColor = self.view.buttonHolderView.backgroundColor =
+                self.view.playButtonHolderView.backgroundColor = self.view.playbackRateButtonHolderView.backgroundColor = [[VKVideoPlayerView colorFromHexString:VIDEO_BACKGROUND_COLOR] colorWithAlphaComponent:0.5];
+                
+                if (self.revisionEnabled) {
+                    self.view.buttonHolderView.hidden = NO;
+                    self.view.playButtonHolderView.hidden = self.view.buttonHolderView2.hidden = !self.view.buttonHolderView.hidden;
+                } else if (self.avNoteEnabled) {
+                    self.view.buttonHolderView2.hidden = NO;
+                    self.view.buttonHolderView.hidden = self.view.playButtonHolderView.hidden = !self.view.buttonHolderView2.hidden;
+                } else {
+                    self.view.playButtonHolderView.hidden = NO;
+                    self.view.buttonHolderView.hidden = self.view.buttonHolderView2.hidden = !self.view.playButtonHolderView.hidden;
+                }
+                
             } break;
+                
             case VKVideoPlayerStateContentPaused:
                 self.playerControlsEnabled = YES;
                 [self.view setPlayButtonsSelected:YES];
                 self.view.playerLayerView.hidden = NO;
                 self.track.lastDurationWatchedInSeconds = [NSNumber numberWithFloat:[self currentTime]];
                 self.view.buttonOverlayView.hidden = NO;
-                self.view.playbackRateButtonHolderView.backgroundColor = [UIColor clearColor];
+                
+                self.view.buttonHolderView2.backgroundColor = self.view.buttonHolderView.backgroundColor =
+                self.view.playButtonHolderView.backgroundColor = self.view.playbackRateButtonHolderView.backgroundColor = [UIColor clearColor];
+                
+                self.view.playbackRateButtonHolderView.hidden = NO;
                 
                 if (self.revisionEnabled) {
                     self.view.buttonHolderView.hidden = NO;
+                    self.view.playButtonHolderView.hidden = self.view.buttonHolderView2.hidden = !self.view.buttonHolderView.hidden;
                 } else if (self.avNoteEnabled) {
                     self.view.buttonHolderView2.hidden = NO;
+                    self.view.buttonHolderView.hidden = self.view.playButtonHolderView.hidden = !self.view.buttonHolderView2.hidden;
                 } else {
                     self.view.playButtonHolderView.hidden = NO;
+                    self.view.buttonHolderView.hidden = self.view.buttonHolderView2.hidden = !self.view.playButtonHolderView.hidden;
                 }
                 
                 [self.player pause];
@@ -1067,16 +1091,23 @@ typedef enum {
 }
 
 - (void)noteButtonTapped {
-    [self.delegate addVideoNote:self];
+    if ([self.delegate respondsToSelector:@selector(addVideoNote:)]) {
+        [self.delegate addVideoNote:self];
+    }
 }
 
 - (void)addToRevisionListButtonTapped {
-    [self.delegate addToRevisionList:self];
+    
+    if ([self.delegate respondsToSelector:@selector(addToRevisionList:)]) {
+        [self.delegate addToRevisionList:self];
+    }
 }
 
 
 - (void)noteSelected:(NSString *)noteId {
-    [self.delegate noteSelected:noteId];
+    if ([self.delegate respondsToSelector:@selector(noteSelected:)]) {
+        [self.delegate noteSelected:noteId];
+    }
 }
 
 - (void)pauseButtonPressed {
